@@ -11,7 +11,7 @@ Hours.init(
         },
         hours_per_week: {
             type: DataTypes.INTEGER,
-            defaultValue: 44
+            defaultValue: 40
         },
     },
     {

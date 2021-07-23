@@ -1,0 +1,115 @@
+ <form class=" form survey" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>What is your current salary?</label>
+            <input type="radio"  value="25-35">
+            <label >25,000 - 35,000</label>
+            <input type="radio" value="36-46">
+            <label >36,000 - 46,000</label>
+            <input type="radio" value="47-57t">
+            <label >47,000-57,000</label>
+            <input type="radio" value="58-68">
+            <label >58,000 -68,000</label>
+            <input type="radio" value="69+">
+            <label >69,000 +</label>
+        </div>
+        <div class = "row">
+        <div class="form-group col-sm">
+            <label>What is your skill level?</label>
+            </br>
+            <input type="radio" value="entry">
+            <label for="male">Entry Level</label>
+            <input type="radio" value="general">
+            <label for="female">General Tech</label>
+            <input type="radio" value="certified">
+            <label for="female">Certified Tech</label>
+        </div>
+        <div class="form-group col-sm">
+           <div class="form-group col-sm">
+            <label>How does your salary rank amongst your auto tech peers?</label>
+            </br>
+            <input type="radio" value="10">
+            <label for="male">Top 10%</label>
+            <input type="radio" value="25">
+            <label for="female">Top 25%</label>
+            <input type="radio" value="50">
+            <label for="female">Top 50%</label>
+        </div>
+        </div>
+    
+        <div class="form-group">
+            <label>My Salary is in-Line with Fair Market Value</label>
+            <input type="radio" value="yes">
+            <label for="male">Yes</label>
+            <input type="radio" value="no">
+            <label for="female">No%</label>
+        </div>
+        <div class = "row">
+        <div class="form-group col-sm">
+            <label>Benefits</label>
+            <p>My Current Benefit Offerings Include: (Click All That Apply)</p>
+            <input class="form-input" type="checkbox" name="medical" id="medical" value="medical">
+            <label for="medical">Medical</label>
+            <input class="form-input" type="checkbox" name="medical" id="medical" value="medical">
+            <label for="medical">Life Insurance</label>
+            <input class="form-input" type="checkbox" name="medical" id="medical" value="medical">
+            <label for="medical">Long Term Disability</label>
+            <input class="form-input" type="checkbox" name="medical" id="medical" value="medical">
+            <label for="medical">401k Employer Match</label>
+            <input class="form-input" type="checkbox" name="medical" id="medical" value="medical">
+            <label for="medical">Tuition Reimbursement</label>
+            <input class="form-input" type="checkbox" name="medical" id="medical" value="medical">
+            <label for="medical">Vacation Time</label>
+        </div>
+        <div class="form-group col-sm">
+            <label>Weight:</label>
+            <input class="form-control" type="number" id="weight" placeholder=" lbs" />
+        </div>
+        </div>
+        <!-- Slider resource https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
+        <div class="slidecontainer form-group">
+            <label>Energy Level: <span id= "energy"></span></label>
+            <input type="range" min="1" max="5" value="3" class="slider" id="energyLevel">
+            {{!-- <small id="energyRange" class="form-text text-muted">1 2 3 4 5</small> --}}
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="dogPic">Profile Picture: </label>
+            <input type="file" accept="image/*" class="form-control-file border" onchange="loadFile(event)" name="dogPic" id="dogPic">
+            <img id="dogPicImg" width="200" />	
+        </div>
+        </br>
+        <p id = 'mainAct'>Activities:</p>
+       <div class="activities form-group" id="activitiesbox">
+            <input class="form-input" type="checkbox" name="hike" id="hike" value="hike">
+            <label for="hike">Hiking</label>
+            <input class="form-input" type="checkbox" name="walk" id="walk" value="walk">
+            <label for="walk">Leisurely Walks</label>
+            <input class="form-input" type="checkbox" name="frisbee" id="frisbee" value="frisbee">
+            <label for="frisbee">Frisbee</label>
+            </br>
+            <input class="form-input" type="checkbox" name="toy" id="toy" value="toy">
+            <label for="toy">Squeaky Toys</label>
+            <input class="form-input" type="checkbox" name="fetch" id="fetch" value="fetch">
+            <label for="fetch">Fetch</label>
+            <input class="form-input" type="checkbox" name="kids" id="kids" value="kids">
+            <label for="kids">Child friendly</label>
+            </br>
+            <input class="form-input" type="checkbox" name="smalldog" id="smalldog" value="smalldog">
+            <label for="smalldog">Small-dog friendly</label>
+            <input class="form-input" type="checkbox" name="bigdog" id="bigdog" value="bigdog">
+            <label for="bigdog">Big-dog friendly</label>
+         
+               
+        </div>
+        </br>
+        <div class = "row">
+            <div class = "form-group col-sm" style = "text-align: center">
+<button class="btn btn-action btn-large" id = "dogSubmit">Submit<i class="fas fa-paw ms-3"></i></button>
+        </div>
+        </div>
+        </div>
+</form>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./js/dogSignup.js"></script>
