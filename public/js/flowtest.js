@@ -1,3 +1,32 @@
+const groupOneClick = () => {
+    const groupone = document.getElementsByClassName("group-one");
+    $('.group-one').hide();
+    $('.group-two').show();
+}
+document
+    .querySelector('#paysave').addEventListener('click', groupOneClick);
+
+
+const groupTwoClick = () => {
+    const groupone = document.getElementsByClassName("group-two");
+    $('.group-two').hide();
+    $('.group-three').show();
+}
+document.querySelector('#saveSkill').addEventListener('click', groupTwoClick);
+
+const groupThreeClick = () => {
+    const groupone = document.getElementsByClassName("group-three");
+    $('.group-three').hide();
+    $('.group-four').show();
+}
+document.querySelector('#savehourans').addEventListener('click', groupThreeClick);
+
+// const groupFourClick = () => {
+//     const groupone = document.getElementsByClassName("group-four");
+//     $('.group-four').hide();
+//     // $('.group-five').show();
+// }
+// document.getElementsByID('#saveRank').addEventListener('click', groupFourClick);
 
 
 const paysaveHandler = async (event) => {
@@ -14,15 +43,13 @@ const paysaveHandler = async (event) => {
         if (response.ok) {
             // document.location.replace('/question2');
             console.log("pay stored!" + response);
-            $('.group-one').hide();
-            $('.group-two').show();
         } else {
             alert("ERR OR")
         }
     }
 }
-document
-    .querySelector('#paysave').addEventListener('click', paysaveHandler);
+// document
+//     .querySelector('#savehourans').addEventListener('click', paysaveHandler);
 
 
 const saveSkillHandler = async (event) => {
@@ -39,15 +66,13 @@ const saveSkillHandler = async (event) => {
         if (response.ok) {
             // document.location.replace('/question2');
             console.log("skill stored!");
-            $('.group-two').hide();
-            $('.group-three').show();
         } else {
             alert("ERR OR")
         }
     }
 }
-document
-    .querySelector('#saveSkill').addEventListener('click', saveSkillHandler);
+// document
+//     .querySelector('#savehourans').addEventListener('click', saveSkillHandler);
 
 const saveRankHandler = async (event) => {
     event.preventDefault();
@@ -65,6 +90,9 @@ const saveRankHandler = async (event) => {
             console.log("rank stored!");
             $('.group-four').hide();
             // $('.group-five').show();
+            paysaveHandler();
+            saveSkillHandler();
+            saveRankHandler();
         } else {
             alert("ERR OR")
         }
@@ -87,13 +115,11 @@ const saveHoursAnsHandler = async (event) => {
         if (response.ok) {
             // document.location.replace('/questions');
             console.log("hours stored!");
-            $('.group-three').hide();
-            $('.group-four').show();
         } else {
             alert("ERR OR")
         }
     }
 }
-document
-    .querySelector('#savehourans')
-    .addEventListener('click', saveHoursAnsHandler);
+// document
+//     .querySelector('#savehourans')
+//     .addEventListener('click', saveHoursAnsHandler);

@@ -4,9 +4,6 @@ const routes = require('./routes');
 const sequelize = require('./config/connection');
 const exphbs = require("express-handlebars");
 
-const Pay = require('./models/pay');
-const Hours = require('./models/hours');
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 

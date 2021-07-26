@@ -11,7 +11,7 @@ Hours.init(
         },
         hours_per_week: {
             type: DataTypes.INTEGER,
-            defaultValue: 40
+            default: 40
         },
     },
     {
@@ -19,7 +19,7 @@ Hours.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Hours'
+        modelName: 'hours'
     }
 );
 
