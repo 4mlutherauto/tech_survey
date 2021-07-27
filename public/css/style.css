@@ -44,6 +44,6 @@ h2 {
     display: block;
   }
 
-  .group-two, .group-three, .group-four {
+  .group-two, .group-three, .group-four, .group-five, .group-six {
     display: none;
   }

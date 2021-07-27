@@ -24,6 +24,9 @@ Answers.init(
         },
         emplappreciation: {
             type: DataTypes.STRING,
+        },
+        fairsalary: {
+            type: DataTypes.STRING,
         }
     },
 {

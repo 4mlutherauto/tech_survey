@@ -9,7 +9,8 @@ router.post("/", async (req,res) => {
             salary: req.body.pay,
             skill: req.body.skill,
             hours_per_week: req.body.hourans,
-            ranking: req.body.rank
+            ranking: req.body.rank,
+            fairsalary: req.body.fairsalary
         })
         res.status(200).json(newAnswers);
     } catch (err) {
