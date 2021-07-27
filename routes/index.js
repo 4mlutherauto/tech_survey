@@ -21,9 +21,9 @@ router.get("/questions", async (req, res) => {
     }
 });
 
-router.get("/question2", async (req, res) => {
+router.get("/results", async (req, res) => {
     try {
-        res.render("hours")
+        res.render("results")
     } catch(err) {
         res.status(500).json(err);
     }

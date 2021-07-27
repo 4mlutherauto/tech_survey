@@ -44,8 +44,6 @@ h2 {
     display: block;
   }
 
-  .group-two, .group-three, .group-four, .group-five, .group-six, .group-seven, .group-sevenhalf, .group-eight, .group-nine, .group-ten, .group-tenhalf, .group-evelen, .group-twelve, .group-twelvehalf, 
-  .group-thirteen, .group-fourteen, 
-  .group-fifteen, .group-sixteen, .group-seventeen, .group-eighteen, .group-nineteen, .group-twenty, .group-twentyone {
+  .group-two, .group-three, .group-four, .group-five, .group-six, .group-seven, .group-sevenhalf, .group-eight, .group-nine, .group-ten, .group-tenhalf, .group-eleven, .group-twelve, .group-twelvehalf, .group-thirteen, .group-fourteen, .group-fifteen, .group-sixteen, .group-seventeen, .group-eighteen, .group-nineteen, .group-twenty, .group-twentyone {
     display: none;
   }
