@@ -186,8 +186,8 @@ const savebenefits = async (event) => {
         if (response.ok) {
             // document.location.replace('/question2');
             console.log("benefits:  " + benefitselection);
-            $('.group-five').hide();
-            // $('.group-six').show();
+            $('.group-six').hide();
+            $('.group-seven').show();
         } else {
             alert("ERR OR")
         }
@@ -195,3 +195,137 @@ const savebenefits = async (event) => {
 }
 document
     .querySelector('#savebenefits').addEventListener('click', savebenefits);
+
+
+const employapp = async (event) => {
+    event.preventDefault();
+    const emplappreciation = document.querySelector('input[name="emplappreciation"]:checked').value;
+
+    if (emplappreciation) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ emplappreciation }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log("appreciate employee? " + emplappreciation + " stored!");
+            $('.group-seven').hide();
+            $('.group-eight').show();
+        } else {
+            alert("ERR OR")
+        }
+    }
+}
+document
+    .querySelector('#saveemployapp').addEventListener('click', employapp);
+
+const additionalwork = async (event) => {
+    event.preventDefault();
+    addtlworkarray = [];
+    if ($('#estimates').is(':checked')) {
+        console.log("estimates=yes");
+        addtlworkarray.push("estimates");
+    }
+    else {
+        console.log("no estimates");
+    }
+
+    if ($('#collectparts').is(':checked')) {
+        console.log("collectparts=yes");
+        addtlworkarray.push("collect-parts");
+    }
+    else {
+        console.log("no collect parts");
+    }
+    if ($('#communicatecust').is(':checked')) {
+        console.log("communicatecust=yes");
+        addtlworkarray.push("communicate-to-customers");
+    }
+    else {
+        console.log("no communication");
+    }
+    if ($('#clean').is(':checked')) {
+        console.log("clean=yes");
+        addtlworkarray.push("clean");
+    }
+    else {
+        console.log("no cleaning");
+    }
+    if ($('#quotes').is(':checked')) {
+        console.log("quotes=yes");
+        addtlworkarray.push("prepare-quotes");
+    }
+    else {
+        console.log("no quotes");
+    }
+    if ($('#noaddtlwork').is(':checked')) {
+        console.log("noaddtlwork=yes");
+        addtlworkarray.push("no-additional-work");
+    }
+    else {
+        console.log("no addtl work");
+    }
+    if (addtlworkarray.length != 0) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ addtlworkarray }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            // document.location.replace('/question2');
+            console.log("additional work:  " + addtlworkarray);
+            $('.group-eight').hide();
+            $('.group-nine').show();
+        } else {
+            alert("ERR OR")
+        }
+    }
+}
+document
+    .querySelector('#saveaddtlwork').addEventListener('click', additionalwork);
+
+    const percentworking = async (event) => {
+        event.preventDefault();
+        const percent = document.querySelector('input[name="percent"]:checked').value;
+    
+        if (percent) {
+            const response = await fetch('/api/answers/', {
+                method: 'POST',
+                body: JSON.stringify({ percent }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+            if (response.ok) {
+                // document.location.replace('/question2');
+                console.log("% of day: " + percent + " stored!");
+                $('.group-nine').hide();
+                $('.group-ten').show();
+            } else {
+                alert("ERR OR")
+            }
+        }
+    }
+    document
+        .querySelector('#savepercent').addEventListener('click', percentworking);
+
+        const percentworking = async (event) => {
+            event.preventDefault();
+            const percent = document.querySelector('input[name="percent"]:checked').value;
+        
+            if (percent) {
+                const response = await fetch('/api/answers/', {
+                    method: 'POST',
+                    body: JSON.stringify({ percent }),
+                    headers: { 'Content-Type': 'application/json' },
+                });
+                if (response.ok) {
+                    // document.location.replace('/question2');
+                    console.log("% of day: " + percent + " stored!");
+                    $('.group-nine').hide();
+                    $('.group-ten').show();
+                } else {
+                    alert("ERR OR")
+                }
+            }
+        }
+        document
+            .querySelector('#savepercent').addEventListener('click', percentworking);
