@@ -27,7 +27,61 @@ Answers.init(
         },
         fairsalary: {
             type: DataTypes.STRING,
-        }
+        },
+        benefitselectionarray: {
+            type: DataTypes.STRING,
+        },
+        addtlworkarray: {
+            type: DataTypes.STRING,
+        },
+        employapp: {
+            type: DataTypes.STRING,
+        },
+        percent: {
+            type: DataTypes.INTEGER,
+        },
+        staycurrent: {
+            type: DataTypes.STRING,
+        },
+        contedu: {
+            type: DataTypes.STRING,
+        },
+        adveducation: {
+            type: DataTypes.STRING,
+        },
+        noeduincentive: {
+            type: DataTypes.STRING,
+        },
+        techtoolsarray: {
+            type: DataTypes.STRING,
+        },
+        safetools: {
+            type: DataTypes.STRING,
+        },
+        mechvstechtools: {
+            type: DataTypes.STRING,
+        },
+        schedneed: {
+            type: DataTypes.STRING,
+        },
+        advopp: {
+            type: DataTypes.STRING,
+        },
+        equalprod: {
+            type: DataTypes.STRING,
+        },
+        respect: {
+            type: DataTypes.STRING,
+        },
+        undervalue: {
+            type: DataTypes.STRING,
+        },
+        mechvstech: {
+            type: DataTypes.STRING,
+        },
+        balance: {
+            type: DataTypes.STRING,
+        },
     },
 {
     sequelize,

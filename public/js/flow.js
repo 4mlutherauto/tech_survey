@@ -124,10 +124,10 @@ document
 
 const savebenefits = async (event) => {
     event.preventDefault();
-    benefitselection = [];
+    benefitselectionarray = [];
     if ($('#medical').is(':checked')) {
         console.log("medical=yes");
-        benefitselection.push("medical");
+        benefitselectionarray.push("medical");
     }
     else {
         console.log("no medical");
@@ -135,49 +135,49 @@ const savebenefits = async (event) => {
 
     if ($('#lifeins').is(':checked')) {
         console.log("life ins=yes");
-        benefitselection.push("life-insurance");
+        benefitselectionarray.push("life-insurance");
     }
     else {
         console.log("no life ins");
     }
     if ($('#ltdis').is(':checked')) {
         console.log("disability=yes");
-        benefitselection.push("long-term-disability");
+        benefitselectionarray.push("long-term-disability");
     }
     else {
         console.log("no disability");
     }
     if ($('#401k').is(':checked')) {
         console.log("401k=yes");
-        benefitselection.push("401k");
+        benefitselectionarray.push("401k");
     }
     else {
         console.log("no 401k match");
     }
     if ($('#tuition').is(':checked')) {
         console.log("tuition=yes");
-        benefitselection.push("tuition");
+        benefitselectionarray.push("tuition");
     }
     else {
         console.log("no tuition");
     }
     if ($('#vacation').is(':checked')) {
         console.log("vacation=yes");
-        benefitselection.push("vacation");
+        benefitselectionarray.push("vacation");
     }
     else {
         console.log("no vacation");
     }
     if ($('#none').is(':checked')) {
         console.log("none=yes");
-        benefitselection.push("none");
+        benefitselectionarray.push("none");
     }
     else {
         console.log("has benefits offered");
     }
 
 
-    if (benefitselection.length != 0) {
+    if (benefitselectionarray.length != 0) {
         const response = await fetch('/api/answers/', {
             method: 'POST',
             body: JSON.stringify({ savebenefits }),
@@ -185,7 +185,7 @@ const savebenefits = async (event) => {
         });
         if (response.ok) {
             // document.location.replace('/question2');
-            console.log("benefits:  " + benefitselection);
+            console.log("benefits:  " + benefitselectionarray );
             $('.group-six').hide();
             $('.group-seven').show();
         } else {
