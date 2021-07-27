@@ -1,4 +1,9 @@
 <form class="hourspaysurvey" enctype="multipart/form-data">
+ <div class="form-group group-zero">
+        <label for="emailaddress">Please enter your email address:</label>
+    <input class="form-control" type="text" id="email">
+    <button id="saveemail">NEXT</button>
+</div>
     <div class="form-group group-one">
         <p>What is Your Current Salary Range?</p>
         <input type="radio" name="salaryans" value="30000">
@@ -29,14 +34,19 @@
     <input class="form-control" type="text" id="hoursperweekans">
     <button id="savehourans">NEXT</button>
 </div>
+   <div class="form-group group-threehalf">
+        <label for="hoursperweekans">How Much Do You Earn in an Average Week?</label>
+    <input class="form-control" type="text" id="earnings">
+    <button id="saveearnings">NEXT</button>
+</div>
  <div class="form-group group-four">
             <label>How does your salary rank amongst your auto tech peers?</label>
             </br>
-            <input type="radio" name="rank" value="10">
+            <input type="radio" name="rank" value="32">
             <label for="top10">Top 10%</label>
-            <input type="radio" name="rank" value="25">
+            <input type="radio" name="rank" value="28">
             <label for="top25">Top 25%</label>
-            <input type="radio" name="rank" value="50">
+            <input type="radio" name="rank" value="24">
             <label for="top50">Top 50%</label>
              <button id="saveRank" type="submit">NEXT</button>
         </div>
@@ -107,13 +117,13 @@
         <div class="form-group group-nine">
             <label>What Percent of Your Day is Actually Spent Reparing Vehicles?</label>
             </br>
-            <input type="radio" name="percent" value="90">
+            <input type="radio" name="percent" value=".9">
             <label for="90">90%</label>
-            <input type="radio" name="percent" value="75">
+            <input type="radio" name="percent" value=".7">
             <label for="75">75%</label>
-            <input type="radio" name="percent" value="50">
+            <input type="radio" name="percent" value=".5">
             <label for="50">50%</label>
-            <input type="radio" name="percent" value="40">
+            <input type="radio" name="percent" value=".4">
             <label for="40">less Than 50%</label>
              <button id="savepercent" type="submit">NEXT</button>
         </div>
@@ -130,7 +140,7 @@
             <input type="checkbox" name="contedu" id="EOM">
             <label for="yes">Paid Manufacturer Specific Certification Training</label>
             <input type="checkbox" name="contedu" id="tuitionbonus">
-            <label for="no">Tuition Reimbursement adn Tool Bonus Program</label>
+            <label for="no">Tuition Reimbursement and Tool Bonus Program</label>
              <input type="checkbox" name="contedu" id="leadership">
             <label for="no">Leadership Development Training</label>
             <input type="checkbox" name="contedu" id="external">

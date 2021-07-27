@@ -1,11 +1,8 @@
 const router = require('express').Router();
-const hoursRoutes = require('./hoursRoute');
-const payRoutes = require('./payRoute');
 const answerRoutes = require('./answersRoutes');
-
+const userRoutes = require('./userRoutes');
 //prefix API routes accoring to model/table
-router.use('/hours', hoursRoutes);
-router.use('/pay', payRoutes);
 router.use('/answers', answerRoutes);
+router.use('/user', userRoutes);
 
 module.exports = router;

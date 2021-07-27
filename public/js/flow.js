@@ -1,4 +1,30 @@
 
+const saveEmailHandler = async (event) => {
+    event.preventDefault();
+    const email = document.querySelector('#email').value.trim();
+
+    if (email) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ email }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log("email stored: " + email);
+            $('.group-zero').hide();
+            $('.group-one').show();
+        } else {
+            alert("ERR OR")
+        }
+    }
+}
+document
+    .querySelector('#saveemail')
+    .addEventListener('click', saveEmailHandler);
+
+
+
+
 
 const paysaveHandler = async (event) => {
     event.preventDefault();
@@ -12,7 +38,6 @@ const paysaveHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            // document.location.replace('/question2');
             console.log("pay stored!" + response);
             $('.group-one').hide();
             $('.group-two').show();
@@ -37,7 +62,6 @@ const saveSkillHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            // document.location.replace('/question2');
             console.log("skill stored!");
             $('.group-two').hide();
             $('.group-three').show();
@@ -62,10 +86,9 @@ const saveHoursAnsHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            // document.location.replace('/questions');
             console.log("hours stored!");
             $('.group-three').hide();
-            $('.group-four').show();
+            $('.group-threehalf').show();
         } else {
             alert("ERR OR")
         }
@@ -74,6 +97,30 @@ const saveHoursAnsHandler = async (event) => {
 document
     .querySelector('#savehourans')
     .addEventListener('click', saveHoursAnsHandler);
+
+const earningshandler = async (event) => {
+        event.preventDefault();
+        const earnings = document.querySelector('#earnings').value.trim();
+    
+        if (earnings) {
+            console.log("weekly earnings= " + earnings)
+            const response = await fetch('/api/answers/', {
+                method: 'POST',
+                body: JSON.stringify({ earnings }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+            if (response.ok) {
+                console.log("earnings stored!");
+                $('.group-threehalf').hide();
+                $('.group-four').show();
+            } else {
+                alert("ERR OR")
+            }
+        }
+    }
+    document
+        .querySelector('#saveearnings')
+        .addEventListener('click', earningshandler);
 
 const saveRankHandler = async (event) => {
     event.preventDefault();
@@ -87,7 +134,6 @@ const saveRankHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            // document.location.replace('/question2');
             console.log("rank stored!");
             $('.group-four').hide();
             $('.group-five').show();
@@ -110,7 +156,6 @@ const fairsalary = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            // document.location.replace('/question2');
             console.log("fair salary? " + fairsalary + "stored!");
             $('.group-five').hide();
             $('.group-six').show();
@@ -184,7 +229,6 @@ const savebenefits = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            // document.location.replace('/question2');
             console.log("benefits:  " + benefitselectionarray );
             $('.group-six').hide();
             $('.group-seven').show();
@@ -272,7 +316,6 @@ const additionalwork = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            // document.location.replace('/question2');
             console.log("additional work:  " + addtlworkarray);
             $('.group-eight').hide();
             $('.group-nine').show();
@@ -295,7 +338,6 @@ const percentworking = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            // document.location.replace('/question2');
             console.log("% of day: " + percent + " stored!");
             $('.group-nine').hide();
             $('.group-ten').show();
@@ -318,7 +360,6 @@ const doyoustaycurrent = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            // document.location.replace('/question2');
             console.log("staycurrent? " + staycurrent + " stored!");
             $('.group-ten').hide();
             $('.group-tenhalf').show();
@@ -333,17 +374,51 @@ document
 
 const continueeducation = async (event) => {
     event.preventDefault();
-    const contedu = document.querySelector('input[name="contedu"]:checked').value;
+    conteduarray = [];
+    if ($('#EOM').is(':checked')) {
+        console.log("EOM=yes");
+        conteduarray.push("manufacturer training");
+    }
+    else {
+        console.log("no EOM");
+    }
+    if ($('#tuitionbonus').is(':checked')) {
+        console.log("tuitionbonus=yes");
+        conteduarray.push("tuition bonus");
+    }
+    else {
+        console.log("no tuition bonus");
+    }
+    if ($('#tuitionbonus').is(':checked')) {
+        console.log("tuitionbonus=yes");
+        conteduarray.push("tuition bonus");
+    }
+    else {
+        console.log("no tuition bonus");
+    }
+    if ($('#leadership').is(':checked')) {
+        console.log("leadership=yes");
+        conteduarray.push("leadership training");
+    }
+    else {
+        console.log("no leadership training");
+    }
+    if ($('#external').is(':checked')) {
+        console.log("external=yes");
+        conteduarray.push("external training");
+    }
+    else {
+        console.log("no external training");
+    }
 
-    if (contedu) {
+    if (conteduarray.length !=0) {
         const response = await fetch('/api/answers/', {
             method: 'POST',
-            body: JSON.stringify({ contedu }),
+            body: JSON.stringify({ conteduarray }),
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            // document.location.replace('/question2');
-            console.log("contedu? " + contedu + " stored!");
+            console.log("continuing education= " + conteduarray + " stored!");
             $('.group-tenhalf').hide();
             $('.group-eleven').show();
         } else {

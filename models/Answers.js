@@ -4,7 +4,7 @@ const sequelize = require('../config/connection');
 class Answers extends Model {}
 
 Answers.init(
-    {    a_user_id: {
+    {    answer_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
@@ -19,6 +19,9 @@ Answers.init(
             type: DataTypes.INTEGER,
             default: 30
         },
+        earn_per_week: {
+            type: DataTypes.INTEGER
+        },
         ranking: {
             type: DataTypes.INTEGER,
         },
@@ -29,10 +32,10 @@ Answers.init(
             type: DataTypes.STRING,
         },
         benefitselectionarray: {
-            type: DataTypes.STRING,
+            type: DataTypes.JSON,
         },
         addtlworkarray: {
-            type: DataTypes.STRING,
+            type: DataTypes.JSON,
         },
         employapp: {
             type: DataTypes.STRING,
@@ -53,7 +56,7 @@ Answers.init(
             type: DataTypes.STRING,
         },
         techtoolsarray: {
-            type: DataTypes.STRING,
+            type: DataTypes.JSON,
         },
         safetools: {
             type: DataTypes.STRING,
@@ -81,6 +84,13 @@ Answers.init(
         },
         balance: {
             type: DataTypes.STRING,
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: "user",
+              key: "id",
+            },
         },
     },
 {
