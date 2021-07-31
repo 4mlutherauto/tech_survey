@@ -13,29 +13,29 @@ router.get("/", async (req, res) => {
 });
 
 //this is legit
-router.get('/resultspage', async (req, res) => {
-    try {
-        const answerData = await Answers.findAll({
-            include: [
-                {
-                    model: User,
-                }
-            ]
-        },
-            { where:
-            { user_id: req.session.user_id}
-        });
-        console.log( answerData)
-        res.render("results", {
-            answerData,
-            sessionid: req.session.user_id,
-            emaildisplay: req.session.email,
-        })
-      } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-      }
-    });
+// router.get('/resultspage', async (req, res) => {
+//     try {
+//         const answerData = await Answers.findAll({
+//             include: [
+//                 {
+//                     model: User,
+//                 }
+//             ]
+//         },
+//             { where:
+//             { user_id: req.session.user_id}
+//         })
+//         const answer = answerData.get({ plain: true });
+        
+//         console.log( answer)
+//         res.render("results", {
+//             answer
+//         })
+//       } catch (err) {
+//         console.log(err);
+//         res.status(500).json(err);
+//       }
+//     });
 
 router.get('/resultspage/:id', async (req, res) => {
     try {
@@ -47,7 +47,7 @@ router.get('/resultspage/:id', async (req, res) => {
             ]
         });
         const user = userData.get({ plain: true });
-        console.log( userData)
+        console.log( "test test test" + userData)
         res.render("resultspage", {
             ...user
             // sessionid: req.session.user_id,
@@ -105,14 +105,51 @@ router.get('/users', async (req, res) => {
     }
   });
 
+  router.get('/resultspage', async (req, res) => {
+    try {
+        const answersData = await Answers.findAll({
+    //     include: [
+    //         {
+    //             model: User,
+    //         }
+    //     ]
+    // },
+         where:
+        { "user_id": 3}
+    });
+    console.log(answersData);
+        //   res.status(200).json(answersData);
+        res.render("resultspage", {
+         salary: answersData[0].salary,
+         skill: answersData[1].skill,
+         hours: answersData[2].hours_per_week,
+         earnings: answersData[3].earn_per_week,
+         ranking: answersData[4].ranking,
+        })
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
-// router.get("/allhours", async (req, res) => {
-//         const hoursalldata = await Hours.findAll().catch((err) => {
-//             res.json(err);
-//         });
-//         const morehours = hoursalldata.map((hours) => hours.get({ plain: true}));
-//         res.render('hoursdisplay', { morehours });
-// });
+  router.get('/allanswers', async (req, res) => {
+    try {
+        const answersData = await Answers.findAll({
+    //     include: [
+    //         {
+    //             model: User,
+    //         }
+    //     ]
+    // },
+         where:
+        { "user_id": 3}
+    });
+    console.log(answersData);
+    res.status(200).json(answersData); 
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
 
 
 module.exports = router;

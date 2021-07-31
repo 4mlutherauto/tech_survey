@@ -99,28 +99,28 @@ document
     .addEventListener('click', saveHoursAnsHandler);
 
 const earningshandler = async (event) => {
-        event.preventDefault();
-        const earnings = document.querySelector('#earnings').value.trim();
-    
-        if (earnings) {
-            console.log("weekly earnings= " + earnings)
-            const response = await fetch('/api/answers/', {
-                method: 'POST',
-                body: JSON.stringify({ earnings }),
-                headers: { 'Content-Type': 'application/json' },
-            });
-            if (response.ok) {
-                console.log("earnings stored!");
-                $('.group-threehalf').hide();
-                $('.group-four').show();
-            } else {
-                alert("ERR OR")
-            }
+    event.preventDefault();
+    const earnings = document.querySelector('#earnings').value.trim();
+
+    if (earnings) {
+        console.log("weekly earnings= " + earnings)
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ earnings }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log("earnings stored!");
+            $('.group-threehalf').hide();
+            $('.group-four').show();
+        } else {
+            alert("ERR OR")
         }
     }
-    document
-        .querySelector('#saveearnings')
-        .addEventListener('click', earningshandler);
+}
+document
+    .querySelector('#saveearnings')
+    .addEventListener('click', earningshandler);
 
 const saveRankHandler = async (event) => {
     event.preventDefault();
@@ -229,7 +229,7 @@ const savebenefits = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            console.log("benefits:  " + benefitselectionarray );
+            console.log("benefits:  " + benefitselectionarray);
             $('.group-six').hide();
             $('.group-seven').show();
         } else {
@@ -309,14 +309,22 @@ const additionalwork = async (event) => {
     else {
         console.log("no addtl work");
     }
+
+    //this returns an object but the key is not a string
+    //update key is a string, but so is the entire object....
     if (addtlworkarray.length != 0) {
+        // const addtlworkobj = { addtlworkarrayobj: [] }
+        // addtlworkobj.addtlworkarrayobj.push(addtlworkarray);
+        let stringyobj = JSON.stringify(Object.assign({}, addtlworkarray));
         const response = await fetch('/api/answers/', {
+            //body: stringyobj DOES NOT SAVE TO DB
             method: 'POST',
-            body: JSON.stringify({ addtlworkarray }),
+            body: JSON.stringify({ stringyobj }),
             headers: { 'Content-Type': 'application/json' },
-        });
+        })
+        console.log('what is this', stringyobj);
         if (response.ok) {
-            console.log("additional work:  " + addtlworkarray);
+            console.log(addtlworkarray)
             $('.group-eight').hide();
             $('.group-nine').show();
         } else {
@@ -411,7 +419,7 @@ const continueeducation = async (event) => {
         console.log("no external training");
     }
 
-    if (conteduarray.length !=0) {
+    if (conteduarray.length != 0) {
         const response = await fetch('/api/answers/', {
             method: 'POST',
             body: JSON.stringify({ conteduarray }),
@@ -475,265 +483,265 @@ const noincentive = async (event) => {
 document
     .querySelector('#savenoeduincentive').addEventListener('click', noincentive)
 
-    const stateoftheart = async (event) => {
-        event.preventDefault();
-        techtoolsarray = [];
-        if ($('#text').is(':checked')) {
-            console.log("text=yes");
-            techtoolsarray.push("text");
-        }
-        else {
-            console.log("no text");
-        }
-    
-        if ($('#onlinepayment').is(':checked')) {
-            console.log("onlinepayment=yes");
-            techtoolsarray.push("online-payment");
-        }
-        else {
-            console.log("no online payment");
-        }
-        if ($('#photovideo').is(':checked')) {
-            console.log("photovideo=yes");
-            techtoolsarray.push("photo-video-alerts");
-        }
-        else {
-            console.log("no photovideo");
-        }
-        if ($('#empIM').is(':checked')) {
-                console.log("empIM=yes");
-                techtoolsarray.push("employee-instant-messaging");
-            }
-            else {
-                console.log("no empIM");
-            }
-        
-            if ($('#notechtools').is(':checked')) {
-                console.log("notechtools=yes");
-                techtoolsarray.push("no-tech-tools");
-            }
-            else {
-                console.log("nonotechtools");
-            }
-        if (techtoolsarray.length != 0) {
-            const response = await fetch('/api/answers/', {
-                method: 'POST',
-                body: JSON.stringify({ techtoolsarray }),
-                headers: { 'Content-Type': 'application/json' },
-            });
-            if (response.ok) {
-                // document.location.replace('/question2');
-                console.log("technology tools:  " + techtoolsarray);
-                $('.group-twelvehalf').hide();
-                $('.group-thirteen').show();
-            } else {
-                alert("ERR OR")
-            }
+const stateoftheart = async (event) => {
+    event.preventDefault();
+    techtoolsarray = [];
+    if ($('#text').is(':checked')) {
+        console.log("text=yes");
+        techtoolsarray.push("text");
+    }
+    else {
+        console.log("no text");
+    }
+
+    if ($('#onlinepayment').is(':checked')) {
+        console.log("onlinepayment=yes");
+        techtoolsarray.push("online-payment");
+    }
+    else {
+        console.log("no online payment");
+    }
+    if ($('#photovideo').is(':checked')) {
+        console.log("photovideo=yes");
+        techtoolsarray.push("photo-video-alerts");
+    }
+    else {
+        console.log("no photovideo");
+    }
+    if ($('#empIM').is(':checked')) {
+        console.log("empIM=yes");
+        techtoolsarray.push("employee-instant-messaging");
+    }
+    else {
+        console.log("no empIM");
+    }
+
+    if ($('#notechtools').is(':checked')) {
+        console.log("notechtools=yes");
+        techtoolsarray.push("no-tech-tools");
+    }
+    else {
+        console.log("nonotechtools");
+    }
+    if (techtoolsarray.length != 0) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ techtoolsarray }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            // document.location.replace('/question2');
+            console.log("technology tools:  " + techtoolsarray);
+            $('.group-twelvehalf').hide();
+            $('.group-thirteen').show();
+        } else {
+            alert("ERR OR")
         }
     }
-    document.querySelector('#savetechtool').addEventListener('click', stateoftheart)
+}
+document.querySelector('#savetechtool').addEventListener('click', stateoftheart)
 
 
-    const safetoolsprovided = async (event) => {
-        event.preventDefault();
-        const safetools = document.querySelector('input[name="safetools"]:checked').value;
-    
-        if (safetools) {
-            const response = await fetch('/api/answers/', {
-                method: 'POST',
-                body: JSON.stringify({ safetools }),
-                headers: { 'Content-Type': 'application/json' },
-            });
-            if (response.ok) {
-                // document.location.replace('/question2');
-                console.log("safetools? " + safetools + " stored!");
-                $('.group-thirteen').hide();
-                $('.group-fourteen').show();
-            } else {
-                alert("ERR OR")
-            }
+const safetoolsprovided = async (event) => {
+    event.preventDefault();
+    const safetools = document.querySelector('input[name="safetools"]:checked').value;
+
+    if (safetools) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ safetools }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            // document.location.replace('/question2');
+            console.log("safetools? " + safetools + " stored!");
+            $('.group-thirteen').hide();
+            $('.group-fourteen').show();
+        } else {
+            alert("ERR OR")
         }
     }
-    document
-        .querySelector('#savesafetools').addEventListener('click', safetoolsprovided)
-        
-        const mechvstechtoolssprovided = async (event) => {
-            event.preventDefault();
-            const mechvstechtools = document.querySelector('input[name="mechvstechtools"]:checked').value;
-        
-            if (mechvstechtools) {
-                const response = await fetch('/api/answers/', {
-                    method: 'POST',
-                    body: JSON.stringify({ mechvstechtools }),
-                    headers: { 'Content-Type': 'application/json' },
-                });
-                if (response.ok) {
-                    // document.location.replace('/question2');
-                    console.log("mechvstechtools? " + mechvstechtools + " stored!");
-                    $('.group-fourteen').hide();
-                    $('.group-fifteen').show();
-                } else {
-                    alert("ERR OR")
-                }
-            }
+}
+document
+    .querySelector('#savesafetools').addEventListener('click', safetoolsprovided)
+
+const mechvstechtoolssprovided = async (event) => {
+    event.preventDefault();
+    const mechvstechtools = document.querySelector('input[name="mechvstechtools"]:checked').value;
+
+    if (mechvstechtools) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ mechvstechtools }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            // document.location.replace('/question2');
+            console.log("mechvstechtools? " + mechvstechtools + " stored!");
+            $('.group-fourteen').hide();
+            $('.group-fifteen').show();
+        } else {
+            alert("ERR OR")
         }
-        document
-            .querySelector('#savemechvstechtools').addEventListener('click', mechvstechtoolssprovided)
+    }
+}
+document
+    .querySelector('#savemechvstechtools').addEventListener('click', mechvstechtoolssprovided)
 
-            const scheduleneeds = async (event) => {
-                event.preventDefault();
-                const schedneed = document.querySelector('input[name="schedneed"]:checked').value;
-            
-                if (schedneed) {
-                    const response = await fetch('/api/answers/', {
-                        method: 'POST',
-                        body: JSON.stringify({ schedneed }),
-                        headers: { 'Content-Type': 'application/json' },
-                    });
-                    if (response.ok) {
-                        console.log("schedneed? " + schedneed + " stored!");
-                        $('.group-fifteen').hide();
-                        $('.group-sixteen').show();
-                    } else {
-                        alert("ERR OR")
-                    }
-                }
-            }
-            document
-                .querySelector('#saveschedneed').addEventListener('click', scheduleneeds)
+const scheduleneeds = async (event) => {
+    event.preventDefault();
+    const schedneed = document.querySelector('input[name="schedneed"]:checked').value;
 
-                
-            const advopportunity = async (event) => {
-                event.preventDefault();
-                const advopp = document.querySelector('input[name="advopp"]:checked').value;
-            
-                if (advopp) {
-                    const response = await fetch('/api/answers/', {
-                        method: 'POST',
-                        body: JSON.stringify({ advopp }),
-                        headers: { 'Content-Type': 'application/json' },
-                    });
-                    if (response.ok) {
-                        console.log("advopp? " + advopp + " stored!");
-                        $('.group-sixteen').hide();
-                        $('.group-seventeen').show();
-                    } else {
-                        alert("ERR OR")
-                    }
-                }
-            }
-            document
-                .querySelector('#saveadvopp').addEventListener('click', advopportunity)
+    if (schedneed) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ schedneed }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log("schedneed? " + schedneed + " stored!");
+            $('.group-fifteen').hide();
+            $('.group-sixteen').show();
+        } else {
+            alert("ERR OR")
+        }
+    }
+}
+document
+    .querySelector('#saveschedneed').addEventListener('click', scheduleneeds)
 
-                     
-            const equalproductivity = async (event) => {
-                event.preventDefault();
-                const equalprod = document.querySelector('input[name="equalprod"]:checked').value;
-            
-                if (equalprod) {
-                    const response = await fetch('/api/answers/', {
-                        method: 'POST',
-                        body: JSON.stringify({ equalprod }),
-                        headers: { 'Content-Type': 'application/json' },
-                    });
-                    if (response.ok) {
-                        console.log("equalprod? " + equalprod + " stored!");
-                        $('.group-seventeen').hide();
-                        $('.group-eighteen').show();
-                    } else {
-                        alert("ERR OR")
-                    }
-                }
-            }
-            document
-                .querySelector('#saveequalprod').addEventListener('click', equalproductivity)
 
-                         
-            const showrespect = async (event) => {
-                event.preventDefault();
-                const respect = document.querySelector('input[name="respect"]:checked').value;
-            
-                if (respect) {
-                    const response = await fetch('/api/answers/', {
-                        method: 'POST',
-                        body: JSON.stringify({ respect }),
-                        headers: { 'Content-Type': 'application/json' },
-                    });
-                    if (response.ok) {
-                        console.log("respect? " + respect + " stored!");
-                        $('.group-eighteen').hide();
-                        $('.group-nineteen').show();
-                    } else {
-                        alert("ERR OR")
-                    }
-                }
-            }
-            document
-                .querySelector('#saverespect').addEventListener('click', showrespect)
+const advopportunity = async (event) => {
+    event.preventDefault();
+    const advopp = document.querySelector('input[name="advopp"]:checked').value;
 
-                const undervalueskill = async (event) => {
-                    event.preventDefault();
-                    const undervalue = document.querySelector('input[name="undervalue"]:checked').value;
-                
-                    if (undervalue) {
-                        const response = await fetch('/api/answers/', {
-                            method: 'POST',
-                            body: JSON.stringify({ undervalue }),
-                            headers: { 'Content-Type': 'application/json' },
-                        });
-                        if (response.ok) {
-                            console.log("undervalue? " + undervalue + " stored!");
-                            $('.group-nineteen').hide();
-                            $('.group-twenty').show();
-                        } else {
-                            alert("ERR OR")
-                        }
-                    }
-                }
-                document
-                    .querySelector('#saveundervalue').addEventListener('click', undervalueskill)
+    if (advopp) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ advopp }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log("advopp? " + advopp + " stored!");
+            $('.group-sixteen').hide();
+            $('.group-seventeen').show();
+        } else {
+            alert("ERR OR")
+        }
+    }
+}
+document
+    .querySelector('#saveadvopp').addEventListener('click', advopportunity)
 
-                    
-                const mechnottech = async (event) => {
-                    event.preventDefault();
-                    const mechvstech = document.querySelector('input[name="mechvstech"]:checked').value;
-                
-                    if (mechvstech) {
-                        const response = await fetch('/api/answers/', {
-                            method: 'POST',
-                            body: JSON.stringify({ mechvstech }),
-                            headers: { 'Content-Type': 'application/json' },
-                        });
-                        if (response.ok) {
-                            console.log("mechvstech? " + mechvstech + " stored!");
-                            $('.group-twenty').hide();
-                            $('.group-twentyone').show();
-                        } else {
-                            alert("ERR OR")
-                        }
-                    }
-                }
-                document
-                    .querySelector('#savemechvstech').addEventListener('click', mechnottech)
 
-                    const worklifebalance = async (event) => {
-                        event.preventDefault();
-                        const balance = document.querySelector('input[name="balance"]:checked').value;
-                    
-                        if (balance) {
-                            const response = await fetch('/api/answers/', {
-                                method: 'POST',
-                                body: JSON.stringify({ balance }),
-                                headers: { 'Content-Type': 'application/json' },
-                            });
-                            if (response.ok) {
-                                console.log("balance? " + balance + " stored!");
-                                $('.group-twentyone').hide();
-                                document.location.replace('/resultspage');
-                            } else {
-                                alert("ERR OR")
-                            }
-                        }
-                    }
-                    document
-                        .querySelector('#savebalance').addEventListener('click', worklifebalance)
+const equalproductivity = async (event) => {
+    event.preventDefault();
+    const equalprod = document.querySelector('input[name="equalprod"]:checked').value;
+
+    if (equalprod) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ equalprod }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log("equalprod? " + equalprod + " stored!");
+            $('.group-seventeen').hide();
+            $('.group-eighteen').show();
+        } else {
+            alert("ERR OR")
+        }
+    }
+}
+document
+    .querySelector('#saveequalprod').addEventListener('click', equalproductivity)
+
+
+const showrespect = async (event) => {
+    event.preventDefault();
+    const respect = document.querySelector('input[name="respect"]:checked').value;
+
+    if (respect) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ respect }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log("respect? " + respect + " stored!");
+            $('.group-eighteen').hide();
+            $('.group-nineteen').show();
+        } else {
+            alert("ERR OR")
+        }
+    }
+}
+document
+    .querySelector('#saverespect').addEventListener('click', showrespect)
+
+const undervalueskill = async (event) => {
+    event.preventDefault();
+    const undervalue = document.querySelector('input[name="undervalue"]:checked').value;
+
+    if (undervalue) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ undervalue }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log("undervalue? " + undervalue + " stored!");
+            $('.group-nineteen').hide();
+            $('.group-twenty').show();
+        } else {
+            alert("ERR OR")
+        }
+    }
+}
+document
+    .querySelector('#saveundervalue').addEventListener('click', undervalueskill)
+
+
+const mechnottech = async (event) => {
+    event.preventDefault();
+    const mechvstech = document.querySelector('input[name="mechvstech"]:checked').value;
+
+    if (mechvstech) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ mechvstech }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log("mechvstech? " + mechvstech + " stored!");
+            $('.group-twenty').hide();
+            $('.group-twentyone').show();
+        } else {
+            alert("ERR OR")
+        }
+    }
+}
+document
+    .querySelector('#savemechvstech').addEventListener('click', mechnottech)
+
+const worklifebalance = async (event) => {
+    event.preventDefault();
+    const balance = document.querySelector('input[name="balance"]:checked').value;
+
+    if (balance) {
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ balance }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log("balance? " + balance + " stored!");
+            $('.group-twentyone').hide();
+            document.location.replace('/resultspage');
+        } else {
+            alert("ERR OR")
+        }
+    }
+}
+document
+    .querySelector('#savebalance').addEventListener('click', worklifebalance)

@@ -35,7 +35,7 @@ Answers.init(
             type: DataTypes.STRING,
         },
         benefitselectionarray: {
-            type: DataTypes.JSON,
+            type: DataTypes.BLOB,
         },
         addtlworkarray: {
             type: DataTypes.JSON,

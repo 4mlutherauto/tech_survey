@@ -54,6 +54,7 @@ h2 {
     margin-top: 15%;
     display: flex!important;
     text-align: center;
+    float: right;
   }
 
   .form-group button:hover {
