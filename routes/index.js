@@ -115,7 +115,7 @@ router.get('/users', async (req, res) => {
     //     ]
     // },
          where:
-        { "user_id": 3}
+        { "user_id": req.session.user_id}
     });
     console.log(answersData);
         //   res.status(200).json(answersData);
