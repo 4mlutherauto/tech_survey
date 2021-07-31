@@ -3,11 +3,27 @@ const express = require('express');
 const routes = require('./routes');
 const sequelize = require('./config/connection');
 const exphbs = require("express-handlebars");
+const models = require('./models');
+const session = require('express-session');
+
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // const hbs = exphbs.create({});
+
+const sess = {
+  secret: "Super secret secret",
+  cookie: { secure: false },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.use(session(sess));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
@@ -19,6 +35,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 //force true to drop/recreate table(s) on every sync
-sequelize.sync({force: false}).then(() => {
+sequelize.sync({force: true}).then(() => {
   app.listen(PORT, () => console.log('Now listening on PORT: ' + PORT));
 });

@@ -23,12 +23,6 @@ h2 {
     font-size: 24px;
   }
   
-  btn-outline-info {
-    font-size: 32px;
-    color:teal!important;
-  
-  }
-  
   img {
     display: block;
     margin-left: auto;
@@ -37,22 +31,79 @@ h2 {
   }
 
   .form-group {
-    padding-left: 0%;
-  }
-
-  .group-one {
-    display: block;
+    padding: 10%;
+    align-self: center;
+    background-color: rgb(225, 245, 178);
+    display: flex;
+    flex-direction: column;
   }
 
   .group-one, .group-two, .group-three, .group-threehalf, .group-four, .group-five, .group-six, .group-seven, .group-sevenhalf, .group-eight, .group-nine, .group-ten, .group-tenhalf, .group-eleven, .group-twelve, .group-twelvehalf, .group-thirteen, .group-fourteen, .group-fifteen, .group-sixteen, .group-seventeen, .group-eighteen, .group-nineteen, .group-twenty, .group-twentyone {
     display: none;
+    white-space: pre;
   }
 
   .form-group button {
-    background-color: aquamarine;
-    align-content: center;
+    bottom: 15px;
+    background-color:  rgb(124, 150, 141);
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 28px;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 15%;
+    display: flex!important;
+    text-align: center;
   }
 
-  .form-group p {
-    text-align: left;
+  .form-group button:hover {
+    background-color: rgb(163, 204, 190);
+
   }
+
+  .form-group label, p {
+    text-align: center;
+    font-size: 2em;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .hourspaysurvey {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10%;
+  }
+
+  
+  /* CUSTOM RADIO AND CHECKBOX STYLES */
+/* input[type=radio] {
+}
+input[type=checkbox] + label:before{
+  border-radius:2px;
+} */
+
+label{
+  /* text-align: left;
+  clear: both;
+  float: right;
+  margin-right: 15px;
+  border: solid 2 px; */
+  text-align: left;
+    clear: both;
+    float: left;
+    margin-right: 15px;
+    margin-top: -22px;
+}
+
+ input {
+  height: 20px;
+  width: 300px;
+  border: 1px solid #000;
+  margin-top: 15px;
+  float: right;
+}
+#email, #hoursperweekans, #earnings{
+  height: 45px;
+}

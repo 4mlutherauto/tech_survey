@@ -4,7 +4,7 @@ const saveEmailHandler = async (event) => {
     const email = document.querySelector('#email').value.trim();
 
     if (email) {
-        const response = await fetch('/api/answers/', {
+        const response = await fetch('/api/user/', {
             method: 'POST',
             body: JSON.stringify({ email }),
             headers: { 'Content-Type': 'application/json' },
@@ -729,7 +729,7 @@ document
                             if (response.ok) {
                                 console.log("balance? " + balance + " stored!");
                                 $('.group-twentyone').hide();
-                                document.location.replace('/results');
+                                document.location.replace('/resultspage');
                             } else {
                                 alert("ERR OR")
                             }

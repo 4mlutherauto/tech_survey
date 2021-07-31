@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const apiRoutes = require('./api');
 const { User, Answers } = require('../models');
-const { findAll } = require('../models/Answers');
+
 router.use('/api', apiRoutes);
 
 router.get("/", async (req, res) => {
@@ -12,30 +12,47 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.get("/results/:id", async (req, res) => {
+//this is legit
+router.get('/resultspage', async (req, res) => {
     try {
-        const answerData = await Answer.findByPk(req.params.answer_id, {
-          include: [
-            {
-              model: User
-            },
-          ],
+        const answerData = await Answers.findAll({
+            include: [
+                {
+                    model: User,
+                }
+            ]
+        },
+            { where:
+            { user_id: req.session.user_id}
         });
-    
-        const answer = answerData.get({ plain: true });
-    
-        res.render("individualresults", {
-          ...answer,
-        });
+        console.log( answerData)
+        res.render("results", {
+            answerData,
+            sessionid: req.session.user_id,
+            emaildisplay: req.session.email,
+        })
       } catch (err) {
         console.log(err);
         res.status(500).json(err);
       }
     });
 
-router.get("/results", async (req, res) => {
+router.get('/resultspage/:id', async (req, res) => {
     try {
-        res.render("results")
+        const userData = await User.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Answers,
+                }
+            ]
+        });
+        const user = userData.get({ plain: true });
+        console.log( userData)
+        res.render("resultspage", {
+            ...user
+            // sessionid: req.session.user_id,
+            // emaildisplay: req.session.email,
+        })
       } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -75,12 +92,14 @@ router.get("/next", async (req, res) => {
 router.get('/users', async (req, res) => {
     try {
         const userData = await User.findAll({
-            order: [['email', 'ASC']]
+            // include: [{ model: Answers }],
+            // order: [['email', 'ASC']]
         });
-        const users = userData.map((project) => project.get({ plain: true }));
-        res.render('homepage', {
-            users,
-        });
+        // const users = userData.map((project) => project.get({ plain: true }));
+        // res.render('homepage', {
+        //     users,
+        // });
+        res.status(200).json(userData);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -94,5 +113,6 @@ router.get('/users', async (req, res) => {
 //         const morehours = hoursalldata.map((hours) => hours.get({ plain: true}));
 //         res.render('hoursdisplay', { morehours });
 // });
+
 
 module.exports = router;

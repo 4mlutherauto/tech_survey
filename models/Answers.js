@@ -9,6 +9,9 @@ Answers.init(
             primaryKey: true,
             autoIncrement: true
         },
+        email: {
+            type: DataTypes.STRING,
+        },
         salary: {
             type: DataTypes.INTEGER,
         },
@@ -41,13 +44,13 @@ Answers.init(
             type: DataTypes.STRING,
         },
         percent: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(2,2),
         },
         staycurrent: {
             type: DataTypes.STRING,
         },
         contedu: {
-            type: DataTypes.STRING,
+            type: DataTypes.JSON,
         },
         adveducation: {
             type: DataTypes.STRING,
