@@ -11,7 +11,21 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// const hbs = exphbs.create({});
+const hbs = exphbs.create({
+  helpers: {
+    get_array: () => {
+      const parsingtest = Math.random();
+      let book = "blue"
+      if (parsingtest > 0.7) {
+        book = "red"
+      }
+      else if (parsingtest >0.4) {
+        book = "yellow";
+      }
+      return `<span>${book}</span>`
+    }
+    }
+});
 
 const sess = {
   secret: "Super secret secret",
@@ -25,7 +39,8 @@ const sess = {
 
 app.use(session(sess));
 
-app.engine("handlebars", exphbs({ defaultLayout: "main"}));
+app.engine("handlebars", hbs.engine);
+// exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 app.use(express.json());

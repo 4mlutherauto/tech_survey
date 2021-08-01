@@ -11,7 +11,6 @@ router.post("/", async (req,res) => {
             console.log(result);
             req.session.user_id = user.id;
             req.session.email = user.email;
-            // req.session.first_name = user.first_name;
             console.log(user);
             console.log(req.session);
             res.status(200).json({

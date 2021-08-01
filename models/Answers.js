@@ -20,22 +20,25 @@ Answers.init(
         },
         hours_per_week: {
             type: DataTypes.INTEGER,
-            default: 30
+            default: 30,
+            validate: {
+                max: 99,
+              },
         },
         earn_per_week: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            validate: {
+                max: 5000,
+              },
         },
         ranking: {
             type: DataTypes.INTEGER,
-        },
-        emplappreciation: {
-            type: DataTypes.STRING,
         },
         fairsalary: {
             type: DataTypes.STRING,
         },
         benefitselectionarray: {
-            type: DataTypes.BLOB,
+            type: DataTypes.JSON,
         },
         addtlworkarray: {
             type: DataTypes.JSON,
