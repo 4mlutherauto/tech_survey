@@ -39,46 +39,44 @@ h2 {
     width: 40%;
   }
 
-  .form-group {
+  /* .form-group {
     padding: 10%;
     align-self: center;
     background-color: rgb(225, 245, 178);
     display: flex;
     flex-direction: column;
-  }
+  } */
 
   .group-one, .group-two, .group-three, .group-threehalf, .group-four, .group-five, .group-six, .group-seven, .group-sevenhalf, .group-eight, .group-nine, .group-ten, .group-tenhalf, .group-eleven, .group-twelve, .group-twelvehalf, .group-thirteen, .group-fourteen, .group-fifteen, .group-sixteen, .group-seventeen, .group-eighteen, .group-nineteen, .group-twenty, .group-twentyone {
     display: none;
-    white-space: pre;
   }
 
-  .form-group button {
-    bottom: 15px;
+  button {
     background-color:  rgb(124, 150, 141);
-    border: none;
-    padding: 1rem;
+    /* border: none; */
+    /* padding: 1rem; */
     border-radius: 5px;
     font-size: 28px;
     font-family: 'Quicksand', sans-serif;
     margin-top: 15%;
-    display: flex!important;
-    text-align: center;
-    float: right;
+    /* display: flex!important; */
+    text-align: center!important;
+    max-width: 100%;
   }
 
-  .form-group button:hover {
+  button:hover {
     background-color: rgb(163, 204, 190);
 
   }
 
-  .form-group label, p {
+  /* .form-group label, p {
     text-align: center;
     font-size: 2em;
     background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
-  }
+  } */
 
   .hourspaysurvey {
     display: flex;
@@ -94,26 +92,40 @@ input[type=checkbox] + label:before{
   border-radius:2px;
 } */
 
-label{
+/* label{ */
   /* text-align: left;
   clear: both;
   float: right;
   margin-right: 15px;
   border: solid 2 px; */
-  text-align: left;
+  /* text-align: left;
     clear: both;
     float: left;
     margin-right: 15px;
     margin-top: -22px;
-}
-
+} */
+/* 
  input {
   height: 20px;
   width: 300px;
   border: 1px solid #000;
   margin-top: 15px;
   float: right;
-}
-#email, #hoursperweekans, #earnings{
+} */
+/* #email, #hoursperweekans, #earnings{
   height: 45px;
+} */
+
+.input-group-radio {
+  font-size: 24px;
+  max-width: 80%;
+}
+
+.input-group {
+ font-size: 28px;
+ padding-left: 15%;
+ flex-direction: column;
+}
+label {
+  font-size: 28px;
 }

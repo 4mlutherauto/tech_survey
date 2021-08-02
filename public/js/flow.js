@@ -313,9 +313,9 @@ const additionalwork = async (event) => {
     //this returns an object but the key is not a string
     //update key is a string, but so is the entire object....
     if (addtlworkarray.length != 0) {
-        // const addtlworkobj = { addtlworkarrayobj: [] }
+    //  const addtlworkobj = { addtlworkarrayobj: [] }
         // addtlworkobj.addtlworkarrayobj.push(addtlworkarray);
-        let stringyobj = JSON.stringify(Object.assign({}, addtlworkarray));
+        let stringyobj = JSON.stringify(Object.assign([], addtlworkarray));
         const response = await fetch('/api/answers/', {
             //body: stringyobj DOES NOT SAVE TO DB
             method: 'POST',

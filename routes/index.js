@@ -53,7 +53,9 @@ router.get('/resultspage/:id', async (req, res) => {
       salary: user.answers_as[2].earn_per_week,
       ranking: user.answers_as[3].ranking,
       email: user.email,
+      work: JSON.parse(user.answers_as[7].addtlworkarray),
      })
+     console.log("working?", user.answers_as[7].addtlworkarray);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -96,6 +98,8 @@ router.get('/resultspage', async (req, res) => {
      hours: answersData[1].hours_per_week,
      salary: answersData[2].earn_per_week,
      ranking: answersData[3].ranking,
+    //  addtlwork: JSON.parse(answerData[7].addtlwork),
+    
     //  fairsalary: answersData[4].fairsalary,
     // //  benefits: answersData[6].benefitsselectionarray,
     // //   addtlwork: answerData[0].salary,
@@ -103,6 +107,7 @@ router.get('/resultspage', async (req, res) => {
       percent:  answersData[8].percent,
     //  potential_hours: answersData[0].potential_hours,
    })
+   console.log(answerData[7]);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -117,26 +122,26 @@ router.get('/potentialhours', async (req, res) => {
       where: (
         // does not work --> {"user_id" : req.session.user_id} 
 
-        sequelize.literal('hours_per_week <> ""')
-        //does not work -->  || sequelize.literal('percent <> ""')
+        sequelize.literal(`SELECT JSON_ARRAY(addtlworkarray) FROM answers_a WHERE addtlworkarray <> "" AND user_id =2;`)
+        //does not work to add 2nd sql literal-->  || sequelize.literal('percent <> ""')
       ),
       //  ),
-      attributes: {
-        include: [
-          [
-            //  sequelize.literal('hours_per_week = 44'),
-            //  "potential_hours",
-            sequelize.literal(
-              `(SELECT hours_per_week*.9 WHERE hours_per_week <> "")`
-            ),
-            "potential_hours",
-          ],
-          //      sequelize.literal(
-          //       `(SELECT percent*100 WHERE percent <> "")`
-          //  ),
-          //   "percent_under_hood_per_day",
-        ],
-      }
+      // attributes: {
+      //   include: [
+      //     [
+      //       //  sequelize.literal('hours_per_week = 44'),
+      //       //  "potential_hours",
+      //       sequelize.literal(
+      //         `(SELECT hours_per_week*.9 WHERE hours_per_week <> "")`
+      //       ),
+      //       "potential_hours",
+      //     ],
+      //     //      sequelize.literal(
+      //     //       `(SELECT percent*100 WHERE percent <> "")`
+      //     //  ),
+      //     //   "percent_under_hood_per_day",
+      //   ],
+      // }
     })
     for (let i = 0; i < answersData.length; i++) {
 

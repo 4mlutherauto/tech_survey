@@ -1,10 +1,12 @@
 <form class="hourspaysurvey">
 
     {{!-- enctype="multipart/form-data"> --}}
-    <div class="form-group group-zero">
+    <div class="group-zero">
         <label for="emailaddress">Please enter your email address:</label>
         <input class="form-control" type="text" id="email">
-        <button class="group-zero" id="saveemail">NEXT</button>
+        <div class="group-zero row">
+            <button class="group-zero" id="saveemail">NEXT</button>
+        </div>
     </div>
     {{!-- <div class="form-group horiztonal-form group-one row" id="salarydiv">
         <p>What is Your Current Salary Range?</p>
@@ -21,146 +23,356 @@
             </div>
         </div>
     </div> --}}
-    <div class="form-group group-two row">
+    <div class="group-two">
         <label>What is your skill level?</label>
         </br>
-        <input type="radio" name="skill" value="entry"><label>Entry Level</label>
-        <input type="radio" name="skill" value="general"> <label>General Tech</label>
-        <input type="radio" name="skill" value="certified"><label>Certified Tech</label>
+        <div class="input-group-prepend">
+            <div class="input-group-radio">
+                <input type="radio" name="skill" value="entry" aria-label="radio for entry level"> Entry Level</input>
+            </div>
+        </div>
+        <div class="input-group-prepend">
+            <div class="input-group-radio">
+                <input type="radio" name="skill" value="general" aria-label="radio for general tech"> General
+                Tech</input>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="skill" value="certified" aria-label="radio for certified tech"> Certified
+                    Tech</input>
+                </div>
+            </div>
+        </div>
+        {{!-- <input type="radio" name="skill" value="entry"><label>Entry Level</label> --}}
+        {{!-- <input type="radio" name="skill" value="general"> <label>General Tech</label> --}}
+        {{!-- <input type="radio" name="skill" value="certified"><label>Certified Tech</label> --}}
         <button id="saveSkill">NEXT</button>
     </div>
-    <div class="form-group group-three">
-        <label for="hoursperweekans">How Many Hours Per Week Do You Work?</label>
-        <input class="form-control" type="text" id="hoursperweekans">
+    <div class="group-three">
+        <div class="input-group">
+            <label for="hoursperweekans">How Many Hours Per Week Do You Work?</label>
+            <div class="input-group-text">
+                <input class="form-control" type="text" id="hoursperweekans" aria-label="text for hours per week">
+            </div>
+
+        </div>
         <button id="savehourans">NEXT</button>
     </div>
-    <div class="form-group group-threehalf">
+    <div class="group-threehalf">
         <label for="hoursperweekans">How Much Do You Earn in an Average Week?</label>
-        <input class="form-control" type="text" id="earnings">
+        <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input class="form-control" type="text" id="earnings" aria-label="text for earnings per week">
+            <span class="input-group-text">.00</span>
+        </div>
         <button id="saveearnings">NEXT</button>
     </div>
-    <div class="form-group group-four">
+    <div class="group-four">
         <label>How does your salary rank amongst your auto tech peers?</label>
         </br>
-        <input type="radio" name="rank" value="32">
-        <label for="top10">Top 10%</label>
-        <input type="radio" name="rank" value="28">
-        <label for="top25">Top 25%</label>
-        <input type="radio" name="rank" value="24">
-        <label for="top50">Top 50%</label>
-        <button id="saveRank" type="submit">NEXT</button>
+        <div class="input-group-prepend">
+            <div class="input-group-radio">
+                <input type="radio" name="rank" value="32" aria-label="radio for Top 10%">
+                Top 10%</input>
+            </div>
+        </div>
+        <div class="input-group-prepend">
+            <div class="input-group-radio">
+                <input type="radio" name="rank" value="28" aria-label="radio for Top 25%">
+                Top 25%</input>
+            </div>
+        </div>
+        <div class="input-group-prepend">
+            <div class="input-group-radio">
+                <input type="radio" name="rank" value="24" aria-label="radio for Top 50%">
+                Top 50%</input>
+            </div>
+        </div>
+        <button id="saveRank">NEXT</button>
     </div>
-    <div class="form-group group-five">
+    </div>
+    <div class="group-five">
         <label>My Salary is in-Line with Fair Market Value</label>
-        <input type="radio" name="fairsalary" value="yes">
-        <label for="yes">Yes</label>
-        <input type="radio" name="fairsalary" value="no">
-        <label for="no">No</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="fairsalary" value="yes" aria-label="radio for yes">
+                    Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="fairsalary" value="no" aria-label="radio for yes">
+                    No</input>
+                </div>
+            </div>
+        </div>
         <button id="savefairsalary" type="submit">NEXT</button>
     </div>
-    <div class="form-group group-six">
-        {{!-- <label>Benefits</label> --}}
-        <p>My Current Benefit Offerings Include: (Click All That Apply)</p>
-        <input class="form-input" type="checkbox" name="benefits" id="medical">
-        <label>Medical</label>
-        <input class="form-input" type="checkbox" name="benefits" id="lifeins">
-        <label>Life Insurance</label>
-        <input class="form-input" type="checkbox" name="benefits" id="ltdis">
-        <label>Long Term Disability</label>
-        <input class="form-input" type="checkbox" name="benefits" id="401k">
-        <label>401k Employer Match </label>
-        <input class="form-input" type="checkbox" name="benefits" id="tuition">
-        <label>Tuition Reimbursement</label>
-        <input class="form-input" type="checkbox" name="benefits" id="vacation">
-        <label>Vacation Time</label>
-        <input class="form-input" type="checkbox" name="benefits" id="none">
-        <label>I am not offered any benefits</label>
+    <div class="group-six">
+        <label>My Current Benefit Offerings Include: (Click All That Apply)</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="benefits" id="medical"
+                        aria-label="checkbox for medical">
+                    Medical</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="benefits" id="lifeins"
+                        aria-label="radio for life insurance">
+                    Life Insurance</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="benefits" id="ltdis"
+                        aria-label="checkbox for Long Term Disability">
+                    Long Term Disability</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="benefits" id="401k"
+                        aria-label="checkbox for 401k Employer Match">
+                    401k Employer Match</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="benefits" id="tuition"
+                        aria-label="checkbox for Tuition Reimbursement">
+                    Tuition Reimbursement</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="benefits" id="vacation"
+                        aria-label="checkbox for vacation">
+                    Vacation Time</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="benefits" id="none"
+                        aria-label="checkbox for none">
+                    None of the Above</input>
+                </div>
+            </div>
+        </div>
         <button id="savebenefits" type="submit">NEXT</button>
     </div>
-    <div class="form-group group-seven">
-        <label>I Am Often Given The Same Appreciation as Other Co-Workers</label>
-        <input type="radio" name="emplappreciation" value="yes">
-        <label for="yes">Yes</label>
-        <input type="radio" name="emplappreciation" value="no">
-        <label for="no">No</label>
+    <div class="group-seven">
+        <div class="input-group">
+            <label>I Am Often Given The Same Appreciation as Other Co-Workers</label>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input class="form-input" type="radio" name="emplappreciation" aria-label="radio for Yes"
+                        value="yes">
+                    Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input class="form-input" type="radio" name="emplappreciation" aria-label="radio for no" value="no">
+                    No</input>
+                </div>
+            </div>
+        </div>
         <button id="saveemployapp" type="submit">NEXT</button>
     </div>
-    <div class="form-group group-sevenhalf">
-        <label>My Company Offers Employee Appreciation Programs (Check All That Apply)</label>
-        <input type="checkbox" name="apprprog" id="gifts">
-        <label>Recognition Gifts (i.e., free lunch, tickets to sporting events/concerts, happy hour)</label>
-        <input type="checkbox" name="apprprog" id="discount">
-        <label>Employee Discounts</label>
-        <input type="checkbox" name="apprprog" id="office-perk">
-        <label>Office Perks</label>
-        <input type="checkbox" name="apprprog" id="no-perk">
-        <label>None</label>
-        <button id="saveapprprog" type="submit">NEXT</button>
+    <div class="group-sevenhalf">
+        <label>My Company Offers Employee Appreciation Programs (Click All That Apply)</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="apprprog" id="gifts"
+                        aria-label="checkbox for gifts">
+                    Recognition Gifts (i.e., free lunch, tickets to sporting events/concerts, happy hour)</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="apprprog" id="discount"
+                        aria-label="checkbox for discounts">
+                    Employee Discounts</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="apprprog" id="discount"
+                        aria-label="checkbox for office perks">
+                    Office Perks</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="apprprog" id="no-perk"
+                        aria-label="checkbox for no perks">
+                    None of the Above</input>
+                </div>
+            </div>
+            <button id="saveapprprog" type="submit">NEXT</button>
+        </div>
     </div>
-    <div class="form-group group-eight">
-        <p>In Addition to Repair Work, I Have to: (Check All That Apply)</p>
-        <input type="checkbox" name="addtlwork" id="estimates">
-        <label>Prepare Customer Estimates</label>
-        <input type="checkbox" name="addtlwork" id="collectparts">
-        <label>Collect Parts For Repair Work</label>
-        <input type="checkbox" name="addtlwork" id="communicatecust">
-        <label>Communicate With Clients to Determine Problems</label>
-        <input type="checkbox" name="addtlwork" id="clean">
-        <label>Clean Work Area After Each Shift</label>
-        <input type="checkbox" name="addtlwork" id="quotes">
-        <label>Prepare Quotes</label>
-        <input class="form-input" type="checkbox" name="addtlwork
-            " id="noaddtlwork">
-        <label>I Do Not Have Additional Responsibilities</label>
+    <div class="group-eight">
+        <label>In Addition to Repair Work, I Have to: (Click All That Apply)</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="addtlwork" id="estimates"
+                        aria-label="checkbox for office perks">
+                    Prepare Customer Estimates</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="addtlwork" id="collectparts"
+                        aria-label="checkbox for office perks">
+                    Collect Parts For Repair Work</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="addtlwork" id="communicatecust"
+                        aria-label="checkbox for office perks">
+                    Communicate With Clients to Determine Problems</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="addtlwork" id="clean"
+                        aria-label="checkbox for office perks">
+                    Clean Work Area After Each Shift</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input" type="checkbox" name="addtlwork" id="quotes"
+                        aria-label="checkbox for office perks">
+                    Prepare Quotes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="addtlwork" id="noaddtlwork"
+                        aria-label="checkbox for office perks">
+                    None of the Above</input>
+                </div>
+            </div>
+        </div>
         <button id="saveaddtlwork" type="submit">NEXT</button>
     </div>
     <div class="form-group group-nine">
         <label>What Percent of Your Day is Actually Spent Reparing Vehicles?</label>
-        </br>
-        <input type="radio" name="percent" value=".9">
-        <label for="90">90%</label>
-        <input type="radio" name="percent" value=".7">
-        <label for="75">75%</label>
-        <input type="radio" name="percent" value=".5">
-        <label for="50">50%</label>
-        <input type="radio" name="percent" value=".4">
-        <label for="40">less Than 50%</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="percent" value=".9" aria-label="radio for 90%">90%</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="percent" value=".75" aria-label="radio for 75%">75%</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="percent" value=".5" aria-label="radio for 50%">50%</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="percent" value=".4" aria-label="radio for under 50%">Less Than
+                    50%</input>
+                </div>
+            </div>
+        </div>
         <button id="savepercent" type="submit">NEXT</button>
     </div>
     <div class="form-group group-ten">
-        <label>It's Often Difficult to Stay Current with Repairs Because of Secondary Responsibilities</label>
-        <input type="radio" name="staycurrent" value="yes">
-        <label for="yes">Yes</label>
-        <input type="radio" name="staycurrent" value="no">
-        <label for="no">No</label>
+        <label>It's Often Difficult to Stay Current with Repairs Because of Secondary
+            Responsibilities</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="staycurrent" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="staycurrent" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="savestaycurrent" type="submit">NEXT</button>
     </div>
     <div class="form-group group-tenhalf">
-        <label>My Company Provides Continuing Education and/or Training (Check All That Apply)</label>
-        <input type="checkbox" name="contedu" id="EOM">
-        <label for="yes">Paid Manufacturer Specific Certification Training</label>
-        <input type="checkbox" name="contedu" id="tuitionbonus">
-        <label for="no">Tuition Reimbursement and Tool Bonus Program</label>
-        <input type="checkbox" name="contedu" id="leadership">
-        <label for="no">Leadership Development Training</label>
-        <input type="checkbox" name="contedu" id="external">
-        <label for="no">Training From External Sources (e.g., manager, HR Rep, etc.)</label>
+        <label>My Company Provides Continuing Education and/or Training (Click All That Apply)</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="contedu" id="EOM"
+                        aria-label="checkbox for Manufacturer training">
+                    Paid Manufacturer Specific Certification Training</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="contedu" id="tuitionbonus"
+                        aria-label="checkbox for tuitionbonus">
+                    Tuition Reimbursement and Tool Bonus Program</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="contedu" id="leadership"
+                        aria-label="checkbox for tuitionbonus">
+                    Leadership Development Training</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="contedu" id="external"
+                        aria-label="checkbox for Training From External Sources">
+                    Training From External Sources (e.g., manager, HR Rep, etc.)</input>
+                </div>
+            </div>
+        </div>
         <button id="savecontedu" type="submit">NEXT</button>
     </div>
     <div class="form-group group-eleven">
         <label>I am Encouraged to Further My Eductation to Advance My Career</label>
-        <input type="radio" name="adveducation" value="yes">
-        <label for="yes">Yes</label>
-        <input type="radio" name="adveducation" value="no">
-        <label for="no">No</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="adveducation" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="adveducation" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="saveadveducation" type="submit">NEXT</button>
     </div>
     <div class="form-group group-twelve">
         <label>My Company Does Not Incentivize Continuing Education</label>
-        <input type="radio" name="noeduincentive" value="yes">
-        <label for="yes">Yes</label>
-        <input type="radio" name="noeduincentive" value="no">
-        <label for="no">No</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="noeduincentive" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="noeduincentive" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="savenoeduincentive" type="submit">NEXT</button>
     </div>
     <div class="form-group group-twelvehalf">
@@ -178,84 +390,148 @@
         <button id="savetechtool" type="submit">NEXT</button>
     </div>
     <div class="form-group group-thirteen">
-        <label>My Company Provides Me the Necessary Safety Equiptment to Safely Perform My Duties</label>
-        </br>
-        <input type="radio" name="safetools" value="Yes">
-        <label>Yes</label>
-        <input type="radio" name="safetools" value="No">
-        <label>No</label>
+        <label>My Company Provides Me the Necessary Safety Equiptment to Safely Perform My
+            Duties</label>
+       <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="safetools" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="safetools" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="savesafetools" type="submit">NEXT</button>
     </div>
     <div class="form-group group-fourteen">
         <label>My Company Provides Day-to-Day Tools for Mechanics, Not Technicians</label>
-        </br>
-        <input type="radio" name="mechvstechtools" value="Yes">
-        <label>Yes</label>
-        <input type="radio" name="mechvstechtools" value="No">
-        <label>No</label>
+       <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="mechvstechtools" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="mechvstechtools" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="savemechvstechtools" type="submit">NEXT</button>
     </div>
     <div class="form-group group-fifteen">
         <label>My Manager Works With Me On My Schedule Needs</label>
-        </br>
-        <input type="radio" name="schedneed" value="Yes">
-        <label>Yes</label>
-        <input type="radio" name="schedneed" value="No">
-        <label>No</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="schedneed" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="schedneed" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="saveschedneed" type="submit">NEXT</button>
     </div>
     <div class="form-group group-sixteen">
         <label>My Company Provides Opportunities to Advance My Career</label>
-        </br>
-        <input type="radio" name="advopp" value="Yes">
-        <label>Yes</label>
-        <input type="radio" name="advopp" value="No">
-        <label>No</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="advopp" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="advopp" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="saveadvopp" type="submit">NEXT</button>
     </div>
     <div class="form-group group-seventeen">
         <label>My Productivity is Recognized as Equal to Co-Workers'</label>
-        </br>
-        <input type="radio" name="equalprod" value="Yes">
-        <label>Yes</label>
-        <input type="radio" name="equalprod" value="No">
-        <label>No</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="equalprod" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="equalprod" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="saveequalprod" type="submit">NEXT</button>
     </div>
     <div class="form-group group-eighteen">
         <label>My Company Respects Me and My Position</label>
-        </br>
-        <input type="radio" name="respect" value="Yes">
-        <label>Yes</label>
-        <input type="radio" name="respect" value="No">
-        <label>No</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="respect" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="respect" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="saverespect" type="submit">NEXT</button>
     </div>
     <div class="form-group group-nineteen">
         <label>My Company Undervalues My Technical Skill Set</label>
-        </br>
-        <input type="radio" name="undervalue" value="Yes">
-        <label>Yes</label>
-        <input type="radio" name="undervalue" value="No">
-        <label>No</label>
+       <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="undervalue" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="undervalue" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="saveundervalue" type="submit">NEXT</button>
     </div>
     <div class="form-group group-twenty">
         <label>My Company Treats Me Like a Mechanic, Not a Technician</label>
-        </br>
-        <input type="radio" name="mechvstech" value="Yes">
-        <label>Yes</label>
-        <input type="radio" name="mechvstech" value="No">
-        <label>No</label>
+      <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="mechvstech" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="mechvstech" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="savemechvstech" type="submit">NEXT</button>
     </div>
     <div class="form-group group-twentyone">
         <label>My Company Strongly Believes in a Work/Life Balance</label>
-        </br>
-        <input type="radio" name="balance" value="Yes">
-        <label>Yes</label>
-        <input type="radio" name="balance" value="No">
-        <label>No</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="balance" value="yes" aria-label="radio for yes">Yes</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-radio">
+                    <input type="radio" name="balance" value="no" aria-label="radio for no">No</input>
+                </div>
+            </div>
+        </div>
         <button id="savebalance" type="submit">NEXT</button>
     </div>
 </form>
