@@ -91,6 +91,18 @@ Answers.init(
         balance: {
             type: DataTypes.STRING,
         },
+        potential_hours: {
+            type: DataTypes.INTEGER,
+        },
+        current_hours: {
+            type: DataTypes.INTEGER,
+        },
+        percent_under_hood_per_day: {
+            type:DataTypes.INTEGER
+        },
+        hours_per_weeks: {
+            type:DataTypes.INTEGER
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

@@ -1,50 +1,5 @@
 const router = require('express').Router();
-
-const { sequelize } = require('../../config/connection');
 const Answers = require('../../models/Answers');
-
-// router.get("/results", async (req, res) => {
-//     try {
-//       const answerData = await Answers.findAll({ 
-//         //   where: Sequelize.literal('answer_id =90')
-//         //    include: [{ model: User}],
-//           attributes: {
-//                include: [
-//                    [
-//                      Sequelize.literal(`(SELECT "hours_per_week"*.9 FROM "answers_a" AS potential_hours WHERE "answer_id" ="90")`
-//                     ),
-                    
-//                    ]
-//                ],
-//            },
-//       });
-//        //   include: [{ model: User}],
-//     //    console.log(potential_hours);
-//     res.status(200).json(answerData);
-//       }
-//       catch (err) {
-//           res.status(400).json(err);
-//       }
-//     });
-
-//     router.get("/results/:id", async (req, res) => {
-//         try {
-//             //byAnswerID
-//           const answerData = await Answers.findByPk(req.params.id);
-//         //   const answerData = await Answers.findByPk(req.params.id, {
-//         //       include: [{ model: User }]
-//         //   });
-//         // if (!answerData) {
-//         //     res.status(400).json({ message: 'No answers found with that id'});
-//         //     return;
-//         // }
-//         res.status(200).json(answerData.addtlworkarray);
-//           }
-//           catch (err) {
-//                 console.log("nope");
-//               res.status(400).json(err);
-//           }
-//         });
 
         
 router.post("/", async (req,res) => {
@@ -82,5 +37,6 @@ router.post("/", async (req,res) => {
         console.log("answers not captured"), res.status(400).json(err);
     }
 });
+
 
 module.exports = router;

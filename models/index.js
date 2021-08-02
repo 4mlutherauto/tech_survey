@@ -12,11 +12,4 @@ User.hasMany(Answers, {
   });
 
 
-
-
-
-
-
-
-
 module.exports = { User, Answers };

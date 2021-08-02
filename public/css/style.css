@@ -4,6 +4,15 @@ h2 {
   h3 {
     text-align: center;
   }
+
+  h1, h2 {
+    font-weight: bold;
+    color:teal
+  }
+  #hof {
+    color: black;
+    font-size: 36px;
+  }
   
   .btn-success {
     width: 80px;

@@ -1,9 +1,36 @@
 <div class="col-lg-12">
-<h2 id ="hof"></i>YOUR RESULTS HERE!   <i class="fas fa-car"></i></h2>
+<h1 style="text-align: center;">YOUR RESULTS HERE!   <i class="fas fa-car"></i></h1>
 <br>
-<h3>Your email address is {{ emaildisplay }} </h3>
-<h3> Your id is {{sessionid}}</h3>
-<h3> Current salary = {{ salary}}</h3>
+<h2>Results for {{ email }} </h2>
+<br>
+<h3> Current percent Under Hood = {{ percent }}</h3>
+
+<h3> How many hours do you work in an average week? {{hours}}</h3>
+<h3>Potential hourly wage: {{ranking}} (How do you rank amongst your peers?</h3>
+<h3>Earnings per week: ${{salary}}.00</h3>
+</div>
+<br>
+<div class = "col-lg-12">
+    <h2>Calculator</h2>
+    <h3> Hours worked in an average week: {{hours}} </h3>
+    <h3> Hours under hood currently: {{{current_under_hood_calculator percent hours}}} </h3>
+    <h3>Dollars earned per hour under hood currently: ${{{dollars_under_hood_calculator salary percent hours}}} hours </h3>
+</div>
+<br>
+<div class = "col-lg-12">
+    <h2>Luther Calculations</h2>
+    <h3> Hours worked in an average week: {{hours}} </h3>
+    <h3> Potential percent Under Hood with Luther = 90% (value = .9)</h3>
+   {{!-- HELPER below doesn't show an hour difference if there is no difference --}}
+    {{{difference_under_hood_calculator percent hours}}}
+    <h3>Potential earnings in an average week @ Luther: ${{{potential_weekly_earnings_calculator ranking hours}}}.00</h3>
+</div>
+<br>
+<div class = "col-lg-12">
+    <h2>Yearly Salary</h2>
+    <h3 style = "display: none">Current annual wage{{{yearly_wage_calculator salary}}}</h3>
+    <h3> Potential annual wage with Luther {{{potential_yearly_earnings_calculator ranking hours}}}</h3>
+    <h3>Difference: {{{difference_yearly_earnings_calculator ranking hours salary}}}</h3></h3>
 </div>
 
 {{!-- {{#each answerData}}
