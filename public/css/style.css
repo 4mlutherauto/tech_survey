@@ -53,12 +53,12 @@ h2 {
 
   button {
     background-color: #1a6363;
-    /* border: none; */
+    border: none;
     padding-top: .5rem;
     padding-bottom: .5rem;
     padding-left: 3rem;
     padding-right: 3rem;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 28px;
     margin-top: 10%;
     /* display: flex!important; */
@@ -145,4 +145,12 @@ label {
 
 #groupfiveinput {
  display: block;
+}
+
+.form-check-input {
+  margin-right: 15px;
+}
+
+img {
+  padding-top: 5%
 }

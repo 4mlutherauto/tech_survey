@@ -71,23 +71,23 @@
         <button id="saveearnings">NEXT</button>
     </div>
     <div class="group-four">
-        <label>How does your salary rank amongst your auto tech peers?</label>
+        <label>How do you rank amongst your auto tech peers?</label>
         </br>
         <div class="input-group-prepend">
             <div class="input-group-radio">
-                <input type="radio" name="rank" value="32" aria-label="radio for Top 10%">
+                <input class ="yes-or-no" type="radio" name="rank" value="32" aria-label="radio for Top 10%">
                 Top 10%</input>
             </div>
         </div>
         <div class="input-group-prepend">
             <div class="input-group-radio">
-                <input type="radio" name="rank" value="28" aria-label="radio for Top 25%">
+                <input class ="yes-or-no" type="radio" name="rank" value="28" aria-label="radio for Top 25%">
                 Top 25%</input>
             </div>
         </div>
         <div class="input-group-prepend">
             <div class="input-group-radio">
-                <input type="radio" name="rank" value="24" aria-label="radio for Top 50%">
+                <input class ="yes-or-no" type="radio" name="rank" value="24" aria-label="radio for Top 50%">
                 Top 50%</input>
             </div>
         </div>
@@ -95,7 +95,7 @@
     </div>
     </div>
     <div class="group-five">
-        <label>My Salary is in-Line with Fair Market Value</label>
+        <label>I feel I am fairly compensated for my work?</label>
         <div class="input-group" style="display:block">
             <div class="input-group-prepend">
                 <div class="input-group-radio">
@@ -127,6 +127,13 @@
                     <input class="form-check-input mb-3" type="checkbox" name="benefits" id="lifeins"
                         aria-label="radio for life insurance">
                     Life Insurance</input>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-checkbox">
+                    <input class="form-check-input mb-3" type="checkbox" name="benefits" id="ltdis"
+                        aria-label="checkbox for Long Term Disability">
+                    Short Term Disability</input>
                 </div>
             </div>
             <div class="input-group-prepend">
@@ -296,6 +303,7 @@
         <button id="savepercent" type="submit">NEXT</button>
     </div>
     <div class="group-ten">
+        {{!-- reword question --}}
         <label>It's Often Difficult to Stay Current with Repairs Because of Secondary
             Responsibilities</label>
         <div class="input-group flex-column">
@@ -370,6 +378,7 @@
         <button id="saveadveducation" type="submit">NEXT</button>
     </div>
     <div class="form-group group-twelve">
+        {{!-- Luther does not incentive continuing education --revisit this question --}}
         <label>My Company Does Not Incentivize Continuing Education</label>
         <div class="input-group flex-column">
             <div class="input-group-prepend">
@@ -386,7 +395,7 @@
         <button id="savenoeduincentive" type="submit">NEXT</button>
     </div>
     <div class="group-twelvehalf">
-        <label>My Company Provides State-of-the-Art Technology Tools (Check All That Apply)</label>
+        <label>My Company Provides State-of-the-Art Technology (Check All That Apply)</label>
         <div class="input-group flex-column">
         <div class="input-group-prepend">
             <div class="input-group-checkbox">
@@ -428,6 +437,7 @@
     <div class="form-group group-thirteen">
         <label>My Company Provides Me the Necessary Safety Equiptment to Safely Perform My
             Duties</label>
+        {{!-- reword: My company cares about the safety of my work environment /employees/coworkers--}}
         <div class="input-group flex-column">
             <div class="input-group-prepend">
                 <div class="input-group-radio">
@@ -443,7 +453,7 @@
         <button id="savesafetools" type="submit">NEXT</button>
     </div>
     <div class="form-group group-fourteen">
-        <label>My Company Provides Day-to-Day Tools for Mechanics, Not Technicians</label>
+        <label>My Company Provides Specialty Tools</label>
         <div class="input-group flex-column">
             <div class="input-group-prepend">
                 <div class="input-group-radio">
@@ -491,6 +501,7 @@
         <button id="saveadvopp" type="submit">NEXT</button>
     </div>
     <div class="form-group group-seventeen">
+        {{!-- is this needed to cross reference productivity/recognition? --}}
         <label>My Productivity is Recognized as Equal to Co-Workers'</label>
         <div class="input-group flex-column">
             <div class="input-group-prepend">
@@ -539,6 +550,7 @@
         <button id="saveundervalue" type="submit">NEXT</button>
     </div>
     <div class="form-group group-twenty">
+        {{!-- DELETE  --}}
         <label>My Company Treats Me Like a Mechanic, Not a Technician</label>
         <div class="input-group flex-column">
             <div class="input-group-prepend">
@@ -555,7 +567,8 @@
         <button id="savemechvstech" type="submit">NEXT</button>
     </div>
     <div class="form-group group-twentyone">
-        <label>My Company Strongly Believes in a Work/Life Balance</label>
+        {{!-- Does Luther? --}}
+        <label>My Company Believes in a Work/Life Balance by Providing a Consistent Schedule</label>
         <div class="input-group flex-column">
             <div class="input-group-prepend">
                 <div class="input-group-radio">

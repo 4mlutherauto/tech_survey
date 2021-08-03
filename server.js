@@ -22,10 +22,11 @@ const hbs = exphbs.create({
     dollars_under_hood_calculator: (value1, value2, value3) => {
       return Math.round((100*value1) / (value2 * value3))/100;
     },
-    difference_under_hood_calculator: (value1, value2) => {
-      if (((value1 * value2) - (value2 * .9)) > 0) {
-        return "<h3>" + "Under hood hour difference of..." + ((value1 * value2) - (value2 * .9)) + "</h3>";
-       }
+    difference_under_hood_calculator: (value1, value2, value3) => {
+       return (value3 * .9)-(value1 * value2);
+      // if (difference > 0) {
+      //   return difference;
+      //  }
     },
     potential_weekly_earnings_calculator: (value1, value2) => {
       return Math.round(100*value1 *(value2 *.91)/100);
