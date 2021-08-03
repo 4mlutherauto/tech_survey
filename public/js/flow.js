@@ -417,6 +417,7 @@ const continueeducation = async (event) => {
     }
     else {
         console.log("no external training");
+        conteduarray.push("No continuing education")
     }
 
     if (conteduarray.length != 0) {
