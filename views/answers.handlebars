@@ -1,7 +1,7 @@
 <form class="hourspaysurvey">
 
     {{!-- enctype="multipart/form-data"> --}}
-    <div class="group-zero row">
+    <div class="group-zero">
         <label for="emailaddress">Please enter your email address:</label>
         <input class="form-control" type="text" id="email">
         <button class="group-zero" id="saveemail">NEXT</button>
@@ -96,7 +96,7 @@
     </div>
     <div class="group-five">
         <label>My Salary is in-Line with Fair Market Value</label>
-        <div class="input-group flex-column">
+        <div class="input-group" style="display:block">
             <div class="input-group-prepend">
                 <div class="input-group-radio">
                     <input type="radio" name="fairsalary" value="yes" aria-label="radio for yes">
@@ -105,7 +105,7 @@
             </div>
             <div class="input-group-prepend">
                 <div class="input-group-radio">
-                    <input type="radio" name="fairsalary" value="no" aria-label="radio for yes">
+                    <input type="radio" name="fairsalary" value="no" aria-label="radio for no">
                     No</input>
                 </div>
             </div>
@@ -168,8 +168,8 @@
         <button id="savebenefits" type="submit">NEXT</button>
     </div>
     <div class="group-seven">
-        <div class="input-group flex-column">
-            <label>I Am Often Given The Same Appreciation as Other Co-Workers</label>
+        <label>I Am Often Given The Same Appreciation as Other Co-Workers</label>
+        <div class="input-group" style="display:block">
             <div class="input-group-prepend">
                 <div class="input-group-radio">
                     <input class="form-input" type="radio" name="emplappreciation" aria-label="radio for Yes"
@@ -222,7 +222,7 @@
     </div>
     <div class="group-eight">
         <label>In Addition to Repair Work, I Have to: (Click All That Apply)</label>
-        <div class="input-group flex-column">
+        <div class="input-group flex-column" style="display:block">
             <div class="input-group-prepend">
                 <div class="input-group-checkbox">
                     <input class="form-check-input mb-3" type="checkbox" name="addtlwork" id="estimates"
@@ -253,7 +253,7 @@
             </div>
             <div class="input-group-prepend">
                 <div class="input-group-checkbox">
-                    <input class="form-check-input" type="checkbox" name="addtlwork" id="quotes"
+                    <input class="form-check-input mb-3" type="checkbox" name="addtlwork" id="quotes"
                         aria-label="checkbox for office perks">
                     Prepare Quotes</input>
                 </div>
@@ -386,8 +386,8 @@
         <button id="savenoeduincentive" type="submit">NEXT</button>
     </div>
     <div class="group-twelvehalf">
-        <div class="input-group flex-column"></div>
         <label>My Company Provides State-of-the-Art Technology Tools (Check All That Apply)</label>
+        <div class="input-group flex-column">
         <div class="input-group-prepend">
             <div class="input-group-checkbox">
                 <input class="form-check-input mb-3" type="checkbox" name="techtool" id="text"
@@ -421,6 +421,7 @@
                     aria-label="checkbox for photo video">
                 None of the Above</input>
             </div>
+        </div>
         </div>
         <button id="savetechtool" type="submit">NEXT</button>
     </div>
