@@ -79,11 +79,15 @@ h2 {
   } */
 
   .hourspaysurvey {
-    display: flex;
-    flex-direction: column;
-    padding-top: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15%;
   }
 
+  .hourspaysurvey div {
+    align-self: center;
+  }
   
   /* CUSTOM RADIO AND CHECKBOX STYLES */
 /* input[type=radio] {
@@ -122,8 +126,7 @@ input[type=checkbox] + label:before{
 }
 
 .input-group {
- font-size: 28px;
- padding-left: 15%;
+ font-size: 24px;
 }
 .flex-column {
   flex-direction: column; 
@@ -133,4 +136,13 @@ input[type=checkbox] + label:before{
 }
 label {
   font-size: 28px;
+  margin-bottom: 5%;
+}
+
+.group-six .input-group {
+  align-items: flex-start;
+}
+
+#skillquestion {
+  remove
 }

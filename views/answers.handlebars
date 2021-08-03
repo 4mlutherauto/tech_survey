@@ -1,12 +1,12 @@
 <form class="hourspaysurvey">
 
     {{!-- enctype="multipart/form-data"> --}}
-    <div class="group-zero">
+    <div class="group-zero row">
         <label for="emailaddress">Please enter your email address:</label>
         <input class="form-control" type="text" id="email">
-        <div class="group-zero row">
-            <button class="group-zero" id="saveemail">NEXT</button>
-        </div>
+        <button class="group-zero" id="saveemail">NEXT</button>
+    </div>
+    </div>
     </div>
     {{!-- <div class="form-group horiztonal-form group-one row" id="salarydiv">
         <p>What is Your Current Salary Range?</p>
@@ -28,7 +28,8 @@
         </br>
         <div class="input-group-prepend">
             <div class="input-group-radio">
-                <input type="radio" name="skill" value="entry" aria-label="radio for entry level"> Entry Level</input>
+                <input type="radio" name="skill" value="entry" aria-label="radio for entry level"> Entry
+                Level</input>
             </div>
         </div>
         <div class="input-group-prepend">
@@ -36,21 +37,23 @@
                 <input type="radio" name="skill" value="general" aria-label="radio for general tech"> General
                 Tech</input>
             </div>
+        </div>
             <div class="input-group-prepend">
                 <div class="input-group-radio">
-                    <input type="radio" name="skill" value="certified" aria-label="radio for certified tech"> Certified
+                    <input type="radio" name="skill" value="certified" aria-label="radio for certified tech">
+                    Certified
                     Tech</input>
                 </div>
             </div>
-        </div>
-        {{!-- <input type="radio" name="skill" value="entry"><label>Entry Level</label> --}}
-        {{!-- <input type="radio" name="skill" value="general"> <label>General Tech</label> --}}
-        {{!-- <input type="radio" name="skill" value="certified"><label>Certified Tech</label> --}}
         <button id="saveSkill">NEXT</button>
     </div>
+    {{!-- <input type="radio" name="skill" value="entry"><label>Entry Level</label> --}}
+    {{!-- <input type="radio" name="skill" value="general"> <label>General Tech</label> --}}
+    {{!-- <input type="radio" name="skill" value="certified"><label>Certified Tech</label> --}}
+    </div>
     <div class="group-three">
+        <label for="hoursperweekans">How Many Hours Per Week Do You Work?</label>
         <div class="input-group">
-            <label for="hoursperweekans">How Many Hours Per Week Do You Work?</label>
             <div class="input-group-text">
                 <input class="form-control" type="text" id="hoursperweekans" aria-label="text for hours per week">
             </div>
@@ -340,7 +343,7 @@
                     Training From External Sources (e.g., manager, HR Rep, etc.)</input>
                 </div>
             </div>
-             <div class="input-group-prepend">
+            <div class="input-group-prepend">
                 <div class="input-group-checkbox">
                     <input class="form-check-input mb-3" type="checkbox" name="contedu" id="none"
                         aria-label="checkbox for Training From External Sources">
@@ -386,45 +389,45 @@
         <div class="input-group flex-column"></div>
         <label>My Company Provides State-of-the-Art Technology Tools (Check All That Apply)</label>
         <div class="input-group-prepend">
-                <div class="input-group-checkbox">
-                    <input class="form-check-input mb-3" type="checkbox" name="techtool" id="text"
-                        aria-label="checkbox for Text-to-Customer">Text-to-Customer</input>
-                </div>
+            <div class="input-group-checkbox">
+                <input class="form-check-input mb-3" type="checkbox" name="techtool" id="text"
+                    aria-label="checkbox for Text-to-Customer">Text-to-Customer</input>
             </div>
-             <div class="input-group-prepend">
-                <div class="input-group-checkbox">
-                    <input class="form-check-input mb-3" type="checkbox" name="techtool" id="onlinepayment"
-                        aria-label="checkbox for Text-to-Customer">
-                    Online Payment</input>
-                </div>
-                </div>
-                <div class="input-group-prepend">
-                <div class="input-group-checkbox">
-                    <input class="form-check-input mb-3" type="checkbox" name="techtool" id="photovideo"
-                        aria-label="checkbox for photo video">
-                    Photo-Video Alert to Customer</input>
-                </div>
-                </div>
-                <div class="input-group-prepend">
-                 <div class="input-group-checkbox">
-                    <input class="form-check-input mb-3" type="checkbox" name="techtool" id="empIM"
-                        aria-label="checkbox for photo video">
-                   Employee-to-Employee Instant Messaging for Parts and Approvals</input>
-                </div>
-                </div>
-                <div class="input-group-prepend">
-                 <div class="input-group-checkbox">
-                    <input class="form-check-input mb-3" type="checkbox" name="techtool" id="notechtools"
-                        aria-label="checkbox for photo video">
-                  None of the Above</input>
-                </div>
+        </div>
+        <div class="input-group-prepend">
+            <div class="input-group-checkbox">
+                <input class="form-check-input mb-3" type="checkbox" name="techtool" id="onlinepayment"
+                    aria-label="checkbox for Text-to-Customer">
+                Online Payment</input>
             </div>
+        </div>
+        <div class="input-group-prepend">
+            <div class="input-group-checkbox">
+                <input class="form-check-input mb-3" type="checkbox" name="techtool" id="photovideo"
+                    aria-label="checkbox for photo video">
+                Photo-Video Alert to Customer</input>
+            </div>
+        </div>
+        <div class="input-group-prepend">
+            <div class="input-group-checkbox">
+                <input class="form-check-input mb-3" type="checkbox" name="techtool" id="empIM"
+                    aria-label="checkbox for photo video">
+                Employee-to-Employee Instant Messaging for Parts and Approvals</input>
+            </div>
+        </div>
+        <div class="input-group-prepend">
+            <div class="input-group-checkbox">
+                <input class="form-check-input mb-3" type="checkbox" name="techtool" id="notechtools"
+                    aria-label="checkbox for photo video">
+                None of the Above</input>
+            </div>
+        </div>
         <button id="savetechtool" type="submit">NEXT</button>
     </div>
     <div class="form-group group-thirteen">
         <label>My Company Provides Me the Necessary Safety Equiptment to Safely Perform My
             Duties</label>
-       <div class="input-group flex-column">
+        <div class="input-group flex-column">
             <div class="input-group-prepend">
                 <div class="input-group-radio">
                     <input type="radio" name="safetools" value="yes" aria-label="radio for yes">Yes</input>
@@ -440,7 +443,7 @@
     </div>
     <div class="form-group group-fourteen">
         <label>My Company Provides Day-to-Day Tools for Mechanics, Not Technicians</label>
-       <div class="input-group flex-column">
+        <div class="input-group flex-column">
             <div class="input-group-prepend">
                 <div class="input-group-radio">
                     <input type="radio" name="mechvstechtools" value="yes" aria-label="radio for yes">Yes</input>
@@ -520,7 +523,7 @@
     </div>
     <div class="form-group group-nineteen">
         <label>My Company Undervalues My Technical Skill Set</label>
-       <div class="input-group flex-column">
+        <div class="input-group flex-column">
             <div class="input-group-prepend">
                 <div class="input-group-radio">
                     <input type="radio" name="undervalue" value="yes" aria-label="radio for yes">Yes</input>
@@ -536,7 +539,7 @@
     </div>
     <div class="form-group group-twenty">
         <label>My Company Treats Me Like a Mechanic, Not a Technician</label>
-      <div class="input-group flex-column">
+        <div class="input-group flex-column">
             <div class="input-group-prepend">
                 <div class="input-group-radio">
                     <input type="radio" name="mechvstech" value="yes" aria-label="radio for yes">Yes</input>
