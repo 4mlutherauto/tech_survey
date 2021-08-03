@@ -107,7 +107,7 @@ router.get('/resultspage', async (req, res) => {
       percent:  answersData[8].percent,
     //  potential_hours: answersData[0].potential_hours,
    })
-   console.log(answerData[7]);
+  //  console.log(answerData[7]);
   } catch (err) {
     res.status(500).json(err);
   }

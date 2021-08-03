@@ -124,7 +124,12 @@ input[type=checkbox] + label:before{
 .input-group {
  font-size: 28px;
  padding-left: 15%;
- flex-direction: column;
+}
+.flex-column {
+  flex-direction: column; 
+}
+.no-flex-direction {
+  flex-direction: none;
 }
 label {
   font-size: 28px;
