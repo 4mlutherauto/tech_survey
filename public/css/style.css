@@ -60,7 +60,7 @@ h2 {
     padding-right: 3rem;
     border-radius: 5px;
     font-size: 28px;
-    margin-top: 15%;
+    margin-top: 10%;
     /* display: flex!important; */
     text-align: center!important;
     color: white;
@@ -108,14 +108,13 @@ input[type=checkbox] + label:before{
     margin-right: 15px;
     margin-top: -22px;
 } */
-/* 
- input {
+ 
+ .yes-or-no { 
   height: 20px;
-  width: 300px;
-  border: 1px solid #000;
-  margin-top: 15px;
-  float: right;
-} */
+  width: 90px;
+  /* margin-top: 15px;
+  float: right;  */
+} 
 /* #email, #hoursperweekans, #earnings{
   height: 45px;
 } */
