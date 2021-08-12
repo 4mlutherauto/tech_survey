@@ -2,38 +2,92 @@
 <h1 style="text-align: center;">YOUR RESULTS HERE!   <i class="fas fa-car"></i></h1>
 <br>
 <h2>Results for {{ email }} </h2>
+<div class="results-table">
+    <table>
+  <tr>
+    <th style="width:50%"></th>
+    <th>Hours Per Week</th>
+    <th>Percent Under Hood</th>
+    <th>Weekly Salary</th>
+    <th>$/hr Under Hood</th>
+  </tr>
+  <tr>
+    <td>Current Position</td>
+    <td> {{hours}}
+        {{!-- <i class="fa fa-remove"></i> --}}
+        </td>
+    <td>{{{percent_frontend_display percent}}}
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+         <td>${{salary}}
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+        <td>
+            ${{{current_under_hood_calculator percent hours}}}
+        </td>
+  </tr>
+</table>
+</div>
 <br>
-<h3> Current percent Under Hood = {{ percent }}</h3>
+{{!-- <h3> Current percent Under Hood = {{ percent }}</h3>
 
-<h3> How many hours do you work in an average week? {{hours}}</h3>
+<h3> How many hours do you work in an average week? {{hours}}</h3> --}}
 <h3>Potential hourly wage: {{ranking}} (How do you rank amongst your peers?</h3>
-<h3>Earnings per week: ${{salary}}.00</h3>
+{{!-- <h3>Earnings per week: ${{salary}}.00</h3> --}}
 </div>
 
 {{!-- {{work}} --}}
+<div class="results-table">
+    <table>
+  <tr>
+    <th style="width:50% font-size:larger"></th>
+    <th>Luther</th>
+    <th>Current Company</th>
+  </tr>
+  <tr>
+    <td>Percent Under Hood</td>
+    <td>90%
+        {{!-- <i class="fa fa-remove"></i> --}}
+        </td>
+    <td>{{{percent_frontend_display percent}}}
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+  </tr>
+  <tr>
+    <td>Earnings Per Week</td>
+     <td> ${{{potential_weekly_earnings_calculator ranking hours}}}.00
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+    <td> ${{salary}}.00
+     {{!-- <i class="fas fa-times"></i> --}}
+        </td>
+  </tr>
+  <tr>
+    <td>Hours Under Hood</td>
+     <td> {{{potential_under_hood_calculator hours}}}
+     {{!-- <i class="fas fa-times"></i> --}}
+        </td>
+     <td> {{{current_under_hood_calculator percent hours}}}
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+  </tr>
+  <tr>
+    <td>$/hr Under Hood</td>
+    <td> ${{{ potential_dollars_under_hood_calculator ranking hours}}}
+        {{!-- <i class="fa fa-remove"></i> --}}
+        </td>
+    <td> ${{{ dollars_under_hood_calculator salary percent hours}}}
+        </td>
+  </tr>
+</table>
+</div>
 
-<br>
-<div class = "col-lg-12">
-    <h2>Calculator</h2>
-    <h3> Hours worked in an average week: {{hours}} </h3>
-    <h3> Hours under hood currently: {{{current_under_hood_calculator percent hours}}} </h3>
-    <h3>Dollars earned per hour under hood currently: ${{{dollars_under_hood_calculator salary percent hours}}} hours </h3>
-</div>
-<br>
-<div class = "col-lg-12">
-    <h2>Luther Calculations</h2>
-    <h3> Hours worked in an average week: {{hours}} </h3>
-    <h3> Potential percent Under Hood with Luther = 90% (value = .9)</h3>
-   {{!-- HELPER below doesn't show an hour difference if there is no difference --}}
-    {{!-- <h3>{{{difference_under_hood_calculator percent hours hours}}}</h3> --}}
-    <h3>Potential earnings in an average week @ Luther: ${{{potential_weekly_earnings_calculator ranking hours}}}.00</h3>
-</div>
 <br>
 <div class = "col-lg-12">
     <h2>Yearly Salary</h2>
     <h3 style = "display: none">Current annual wage{{{yearly_wage_calculator salary}}}</h3>
-    <h3> Potential annual wage with Luther {{{potential_yearly_earnings_calculator ranking hours}}}</h3>
-    <h3>Difference: {{{difference_yearly_earnings_calculator ranking hours salary}}}</h3></h3>
+    <h3> Potential annual wage with Luther ${{{potential_yearly_earnings_calculator ranking hours}}}</h3>
+    <h3>Difference: ${{{difference_yearly_earnings_calculator ranking hours salary}}}</h3></h3>
 </div>
 
 {{!-- {{#each answerData}}

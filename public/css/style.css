@@ -154,3 +154,41 @@ label {
 img {
   padding-top: 5%
 }
+
+/* Style the table */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+/* Style table headers and table data */
+th, td {
+  text-align: center;
+  padding: 16px;
+  line-height: 2.5;
+}
+
+th:first-child, td:first-child {
+  text-align: left;
+  font-weight: 800;
+  font-size: larger;
+}
+
+/* Zebra-striped table rows */
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
+.fa-check {
+  color: green;
+}
+
+.fa-times {
+  color: red;
+}
+
+.results-table {
+  margin: 2rem 10rem;
+}
