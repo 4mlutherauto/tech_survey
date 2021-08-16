@@ -9,6 +9,7 @@
     <th>Hours Per Week</th>
     <th>Percent Under Hood</th>
     <th>Weekly Salary</th>
+    <th>Hours Under Hood</th>
     <th>$/hr Under Hood</th>
   </tr>
   <tr>
@@ -23,7 +24,10 @@
         {{!-- <i class="fa fa-check"></i> --}}
         </td>
         <td>
-            ${{{current_under_hood_calculator percent hours}}}
+            {{{current_under_hood_calculator percent hours}}}
+        </td>
+        <td>
+          ${{{ dollars_under_hood_calculator salary percent hours}}}
         </td>
   </tr>
 </table>
@@ -32,7 +36,7 @@
 {{!-- <h3> Current percent Under Hood = {{ percent }}</h3>
 
 <h3> How many hours do you work in an average week? {{hours}}</h3> --}}
-<h3>Potential hourly wage: {{ranking}} (How do you rank amongst your peers?</h3>
+<h3>Potential hourly wage: {{{ estimated_dollars_per_hour ranking skill}}}</h3>
 <h3>Your skill level: {{skill}} </h3>
 {{!-- <h3>Earnings per week: ${{salary}}.00</h3> --}}
 </div>
@@ -56,7 +60,7 @@
   </tr>
   <tr>
     <td>Earnings Per Week</td>
-     <td> ${{{potential_weekly_earnings_calculator ranking hours}}}.00
+     <td> ${{{potential_weekly_earnings_calculator (estimated_dollars_per_hour ranking skill) hours}}}.00
         {{!-- <i class="fa fa-check"></i> --}}
         </td>
     <td> ${{salary}}.00
@@ -74,12 +78,20 @@
   </tr>
   <tr>
     <td>$/hr Under Hood</td>
-    <td> ${{{ potential_dollars_under_hood_calculator ranking hours}}}
+    <td> ${{{ potential_dollars_under_hood_calculator (estimated_dollars_per_hour ranking skill) hours}}}
         {{!-- <i class="fa fa-remove"></i> --}}
         </td>
     <td> ${{{ dollars_under_hood_calculator salary percent hours}}}
         </td>
-  </tr>
+         </tr>
+      <tr>
+      <td>
+         $/hr Under Hood-v2
+      </td>
+      <td>
+      ${{{ new_earn_per_week (potential_under_hood_calculator hours) (dollars_under_hood_calculator salary percent hours) }}} 
+      </td>
+ </tr>
 </table>
 </div>
 
@@ -87,10 +99,123 @@
 <div class = "col-lg-12">
     <h2>Yearly Salary</h2>
     <h3 style = "display: none">Current annual wage{{{yearly_wage_calculator salary}}}</h3>
-    <h3> Potential annual wage with Luther ${{{potential_yearly_earnings_calculator ranking hours}}}</h3>
-    <h3>Difference: ${{{difference_yearly_earnings_calculator ranking hours salary}}}</h3></h3>
+    <h3> Potential annual wage with Luther ${{{potential_yearly_earnings_calculator (estimated_dollars_per_hour ranking skill) hours}}}</h3>
+    <h3>Difference: ${{{difference_yearly_earnings_calculator (estimated_dollars_per_hour ranking skill) hours salary}}}</h3></h3>
 </div>
 
+<div class="results-table">
+    <table>
+  <tr>
+    <th style="width:50% font-size:larger"></th>
+    <th>Luther</th>
+    <th>Current Company</th>
+  </tr>
+  <tr>
+    <td>More Hours Under The Hood</td>
+    <td> {{{ time_under_hood_check_luther (potential_under_hood_calculator hours) (current_under_hood_calculator percent hours)}}}
+        {{!-- <i class="fa fa-remove"></i> --}}
+        </td>
+    <td>{{{ time_under_hood_check_current (potential_under_hood_calculator hours) (current_under_hood_calculator percent hours)}}}
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+  </tr>
+  </table>
+
+</div>
+
+<div class="benefits-table">
+    <table>
+  <tr>
+    <th style="width:50% font-size:larger">Benefits</th>
+    <th>Luther</th>
+    <th>Current Company</th>
+  </tr>
+  <tr>
+  <td>
+  Medical
+  </td>
+    <td>
+        <i class="fa fa-check"></i>
+        </td>
+        <td>
+
+   {{!-- <ul>{{#each benefits}}
+   <li>{{this}}</li>
+    {{/each}}
+    </ul> --}}
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+  </tr>
+  <tr>
+  <td>
+  Life Insurance
+  </td>
+    <td> <i class="fa fa-check"></i>
+        </td>
+        <td>
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+  </tr>
+   <tr>
+  <td>
+Short Term Disability  </td>
+    <td> <i class="fa fa-check"></i>
+        </td>
+        <td>
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+  </tr>
+   <tr>
+  <td>
+  Long Term Disability
+  </td>
+    <td> <i class="fa fa-check"></i>
+        </td>
+        <td>
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+  </tr>
+   <tr>
+  <td>
+Dental  </td>
+    <td> <i class="fa fa-check"></i>
+        </td>
+        <td>
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+  </tr>
+   <tr>
+  <td>
+401k Match  </td>
+    <td> <i class="fa fa-check"></i>
+        </td>
+        <td>
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+  </tr>
+   <tr>
+  <td>
+  Tuition Reimbursement
+  </td>
+    <td> <i class="fa fa-check"></i>
+        </td>
+        <td>
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+  </tr> 
+  <tr>
+  <td>
+ Vacation Time
+  </td>
+    <td> <i class="fa fa-check"></i>
+        </td>
+        <td>
+        {{!-- <i class="fa fa-check"></i> --}}
+        </td>
+  </tr>
+  </table>
+
+</div>
 {{!-- {{#each answerData}}
 {{>resultcard}}
 {{/each}}       --}}

@@ -164,6 +164,7 @@ table {
 }
 
 /* Style table headers and table data */
+
 th, td {
   text-align: center;
   padding: 16px;
@@ -181,6 +182,9 @@ tr:nth-child(even) {
   background-color: #f2f2f2
 }
 
+.benefits-table td {
+  line-height: 1;
+}
 .fa-check {
   color: green;
 }
@@ -189,6 +193,6 @@ tr:nth-child(even) {
   color: red;
 }
 
-.results-table {
+.results-table, .benefits-table {
   margin: 2rem 10rem;
 }

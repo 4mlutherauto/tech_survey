@@ -223,9 +223,10 @@ const savebenefits = async (event) => {
 
 
     if (benefitselectionarray.length != 0) {
+        let benefitselectionobj = JSON.stringify(Object.assign([], benefitselectionarray))
         const response = await fetch('/api/answers/', {
             method: 'POST',
-            body: JSON.stringify({ savebenefits }),
+            body: JSON.stringify({ benefitselectionobj }),
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {

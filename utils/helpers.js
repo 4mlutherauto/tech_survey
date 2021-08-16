@@ -48,6 +48,60 @@ module.exports = {
         const uhhours = Math.round((100 * hours) * .9 / 100);
         const weeklyearnings = Math.round(100 * ranking * (uhhours) / 100);
         return Math.round(weeklyearnings / uhhours);
+    },
+    estimated_dollars_per_hour: (ranking, skill) => {
+        var dph = 0;
+        var skill = skill;
+        if (skill="entry" && ranking==10) {
+            dph = 18.77;
+            return dph;
+        }
+        else if (skill="entry" && ranking==25)
+        {  dph = 16.77
+            return dph;
+        }
+        else if (skill="entry" && ranking==50)
+        { dph = 16.77 
+           return dph;
+        }
+        else if (skill="general" && ranking==10) {
+            dph = 27.17;
+            return dph;
+        }
+        else if (skill="general" && ranking==25)
+        {  dph = 25.17
+            return dph;
+        }
+        else if (skill="general" && ranking==50)
+        { dph = 23.17
+           return dph;
+        }
+        else if (skill="certified" && ranking==10) {
+            dph = 32.11;
+            return dph;
+        }
+        else if (skill="certified" && ranking==25)
+        {  dph = 30.11
+            return dph;
+        }
+        else if (skill="certified" && ranking==50)
+        { dph = 28.11
+           return dph;
+        }
+    },
+    new_earn_per_week: (value1, value2) => {
+        return value1 * value2;
+    },
+    time_under_hood_check_luther: (value1, value2) => {
+        if (value1 > value2){
+            return "<i class='fa fa-check'></i>"
+        }
+        else return
+},
+time_under_hood_check_current: (value1, value2) => {
+    if (value1 < value2){
+        return "<i class='fa fa-check'></i>"
     }
-
+    else return "<i class='fa fa-times'></i>"
+}
 };

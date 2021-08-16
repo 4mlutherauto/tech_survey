@@ -55,8 +55,10 @@ router.get('/resultspage/:id', async (req, res) => {
       email: user.email,
       skill: user.answers_as[0].skill,
       work: JSON.parse(user.answers_as[7].addtlworkarray),
+      benefits: JSON.parse(user.answers_as[5].benefitselectionarray)
      })
      console.log("working?", user.answers_as[7].addtlworkarray);
+     console.log("benefits " + user.answers_as[5].benefitselectionarray)
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
