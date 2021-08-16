@@ -92,14 +92,16 @@ module.exports = {
     new_earn_per_week: (value1, value2) => {
         return value1 * value2;
     },
+    //returns check for luther if under hood hours at current job are less than Luthers, and returns blank (no x) if luther's are less for some reason
     time_under_hood_check_luther: (value1, value2) => {
         if (value1 > value2){
             return "<i class='fa fa-check'></i>"
         }
         else return
 },
+//returns x if under hood hours at current job are less than Luther's
 time_under_hood_check_current: (value1, value2) => {
-    if (value1 < value2){
+    if (value1 < value2) {
         return "<i class='fa fa-check'></i>"
     }
     else return "<i class='fa fa-times'></i>"

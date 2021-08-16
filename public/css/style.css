@@ -182,6 +182,10 @@ tr:nth-child(even) {
   background-color: #f2f2f2
 }
 
+.benefits-table tr:nth-child(even) {
+  background-color: #e6f1de
+}
+
 .benefits-table td {
   line-height: 1;
 }
