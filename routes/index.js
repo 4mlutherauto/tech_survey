@@ -53,6 +53,7 @@ router.get('/resultspage/:id', async (req, res) => {
       salary: user.answers_as[2].earn_per_week,
       ranking: user.answers_as[3].ranking,
       email: user.email,
+      skill: user.answers_as[0].skill,
       work: JSON.parse(user.answers_as[7].addtlworkarray),
      })
      console.log("working?", user.answers_as[7].addtlworkarray);
