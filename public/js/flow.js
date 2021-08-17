@@ -11,7 +11,7 @@ const saveEmailHandler = async (event) => {
         });
         if (response.ok) {
             console.log("email stored: " + email);
-            $('.group-zero').hide();
+            $('.group-one').hide();
             $('.group-two').show();
         } else {
             alert("ERR OR")
@@ -26,28 +26,28 @@ document
 
 
 
-// const paysaveHandler = async (event) => {
-//     event.preventDefault();
-//     const pay = document.querySelector('input[name="salaryans"]:checked').value;
+const paysaveHandler = async (event) => {
+    event.preventDefault();
+    const pay = document.querySelector('#salaryanswer').value;
 
-//     if (pay) {
-//         console.log("the salary is " + pay)
-//         const response = await fetch('/api/answers/', {
-//             method: 'POST',
-//             body: JSON.stringify({ pay }),
-//             headers: { 'Content-Type': 'application/json' },
-//         });
-//         if (response.ok) {
-//             console.log("pay stored!" + response);
-//             $('.group-one').hide();
-//             $('.group-two').show();
-//         } else {
-//             alert("ERR OR")
-//         }
-//     }
-// }
-// document
-//     .querySelector('#paysave').addEventListener('click', paysaveHandler);
+    if (pay) {
+        console.log("the salary is " + pay)
+        const response = await fetch('/api/answers/', {
+            method: 'POST',
+            body: JSON.stringify({ pay }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            console.log("pay stored!" + response);
+            $('.group-zero').hide();
+            $('.group-one').show();
+        } else {
+            alert("ERR OR")
+        }
+    }
+}
+document
+    .querySelector('#paysave').addEventListener('click', paysaveHandler);
 
 
 const saveSkillHandler = async (event) => {
