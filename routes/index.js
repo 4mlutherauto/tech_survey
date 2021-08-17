@@ -68,7 +68,7 @@ router.get('/resultspage/:id', async (req, res) => {
 //START THE SURVEY
 router.get("/next", async (req, res) => {
   try {
-    res.render("answers")
+    res.render("questions")
   } catch (err) {
     res.status(500).json(err);
   }
