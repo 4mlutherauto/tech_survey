@@ -186,11 +186,25 @@ const savebenefits = async (event) => {
         console.log("no life ins");
     }
     if ($('#ltdis').is(':checked')) {
-        console.log("disability=yes");
+        console.log("long disability=yes");
         benefitselectionarray.push("long-term-disability");
     }
     else {
         console.log("no disability");
+    }
+    if ($('#stdis').is(':checked')) {
+        console.log("short disability=yes");
+        benefitselectionarray.push("short-term-disability");
+    }
+    else {
+        console.log("no short disability");
+    }
+    if ($('#dental').is(':checked')) {
+        console.log("dental=yes");
+        benefitselectionarray.push("dental");
+    }
+    else {
+        console.log("no dental");
     }
     if ($('#401k').is(':checked')) {
         console.log("401k=yes");

@@ -136,11 +136,7 @@
   </td>
         <td>
 
-   {{!-- <ul>{{#each benefits}}
-   <li>{{this}}</li>
-    {{/each}}
-    </ul> --}}
-        {{!-- <i class="fa fa-check"></i> --}}
+   {{{benefits_table_med benefits}}}
         </td>
         <td>
         <i class="fa fa-check"></i>
@@ -151,7 +147,7 @@
   Life Insurance
   </td>
         <td>
-        {{!-- <i class="fa fa-check"></i> --}}
+        {{{benefits_table_life benefits}}}
         </td>
         <td>
         <i class="fa fa-check"></i>
@@ -161,7 +157,7 @@
   <td>
 Short Term Disability  </td>
         <td>
-        {{!-- <i class="fa fa-check"></i> --}}
+       {{{benefits_table_std benefits}}}
         </td>
         <td>
         <i class="fa fa-check"></i>
@@ -172,7 +168,7 @@ Short Term Disability  </td>
   Long Term Disability
   </td>
         <td>
-        {{!-- <i class="fa fa-check"></i> --}}
+       {{{benefits_table_ltd benefits}}}
         </td>
         <td>
         <i class="fa fa-check"></i>
@@ -182,7 +178,7 @@ Short Term Disability  </td>
   <td>
 Dental  </td>
         <td>
-        {{!-- <i class="fa fa-check"></i> --}}
+        {{{benefits_table_dental benefits}}}
         </td>
   <td>
         <i class="fa fa-check"></i>
@@ -192,7 +188,7 @@ Dental  </td>
   <td>
 401k Match  </td>
         <td>
-        {{!-- <i class="fa fa-check"></i> --}}
+         {{{benefits_table_401k benefits}}}
         </td>
         <td>
         <i class="fa fa-check"></i>
@@ -203,7 +199,7 @@ Dental  </td>
   Tuition Reimbursement
   </td>
         <td>
-        {{!-- <i class="fa fa-check"></i> --}}
+       {{{benefits_table_tuition benefits}}}
         </td>
         <td>
         <i class="fa fa-check"></i>
@@ -214,14 +210,13 @@ Dental  </td>
  Vacation Time
   </td>
         <td>
-        {{!-- <i class="fa fa-check"></i> --}}
+        {{{benefits_table_vacationtime benefits}}}
         </td>
         <td>
         <i class="fa fa-check"></i>
         </td>
   </tr>
   </table>
-
 </div>
 {{!-- {{#each answerData}}
 {{>resultcard}}

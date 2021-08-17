@@ -105,5 +105,78 @@ time_under_hood_check_current: (value1, value2) => {
         return "<i class='fa fa-check'></i>"
     }
     else return "<i class='fa fa-times'></i>"
+},
+    benefits_table_life: (value1) => {
+    const array= JSON.stringify(Object.assign([], value1));
+    const benefit = (array.includes('life-insurance'))
+    console.log(benefit);
+         if (benefit == true) {
+            return "<i class='fa fa-check'></i>"
+        }
+         else return "<i class='fa fa-times'></i>"
+},
+benefits_table_med: (value1) => {
+    const array= JSON.stringify(Object.assign([], value1));
+    console.log(array + "is the array");
+    const benefit = (array.includes('medical'))
+    console.log(benefit);
+         if (benefit == true) {
+            return "<i class='fa fa-check'></i>"
+        }
+         else return "<i class='fa fa-times'></i>"
+},
+benefits_table_std: (value1) => {
+    const array= JSON.stringify(Object.assign([], value1));
+    const benefit = (array.includes('short-term-disability'))
+    console.log(benefit);
+         if (benefit == true) {
+            return "<i class='fa fa-check'></i>"
+        }
+         else return "<i class='fa fa-times'></i>"
+},
+benefits_table_ltd: (value1) => {
+    const array= JSON.stringify(Object.assign([], value1));
+    const benefit = (array.includes('long-term-disability'))
+    console.log(benefit);
+         if (benefit == true) {
+            return "<i class='fa fa-check'></i>"
+        }
+         else return "<i class='fa fa-times'></i>"
+},
+benefits_table_dental: (value1) => {
+    const array= JSON.stringify(Object.assign([], value1));
+    const benefit = (array.includes('dental'))
+    console.log(benefit);
+         if (benefit == true) {
+            return "<i class='fa fa-check'></i>"
+        }
+         else return "<i class='fa fa-times'></i>"
+},
+benefits_table_401k: (value1) => {
+    const array= JSON.stringify(Object.assign([], value1));
+    const benefit = (array.includes('401k'))
+    console.log(benefit);
+         if (benefit == true) {
+            return "<i class='fa fa-check'></i>"
+        }
+         else return "<i class='fa fa-times'></i>"
+},
+benefits_table_tuition: (value1) => {
+    const array= JSON.stringify(Object.assign([], value1));
+    const benefit = (array.includes('tuition'))
+    console.log(benefit);
+         if (benefit == true) {
+            return "<i class='fa fa-check'></i>"
+        }
+         else return "<i class='fa fa-times'></i>"
+},
+benefits_table_vacationtime: (value1) => {
+    const array= JSON.stringify(Object.assign([], value1));
+    const benefit = (array.includes('vacation'))
+    console.log(benefit);
+         if (benefit == true) {
+            return "<i class='fa fa-check'></i>"
+        }
+         else return "<i class='fa fa-times'></i>"
+         }
 }
-};
